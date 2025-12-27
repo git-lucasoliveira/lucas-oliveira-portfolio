@@ -1,124 +1,38 @@
-# 🚀 Lucas de Oliveira Amorim - Portfolio
+# 🚀 Portfolio - Lucas de Oliveira Amorim
 
-> Professional portfolio website showcasing my journey as a **Java Backend Developer** specialized in Spring Boot and enterprise solutions.
+Portfolio profissional desenvolvido com Next.js 14, TypeScript e Tailwind CSS.
 
-[![Next.js](https://img.shields.io/badge/Next.js-14.2-black?logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-11.0-FF0055?logo=framer)](https://www.framer.com/motion/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+🌐 **[Ver Online](https://lucas-oliveira-portfolio.vercel.app)**
 
-🌐 **[Ver Portfolio Online](https://lucasoliveiraamorim.dev)** | 📧 [Contato](mailto:lucasaoliveira777@gmail.com)
+## 🛠️ Tecnologias
 
----
+- **Next.js 14** - Framework React com App Router
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilização
+- **Framer Motion** - Animações
+- **React Hook Form** - Formulários
 
-## 📋 Sobre o Projeto
-
-**[PT-BR]**  
-Portfolio profissional desenvolvido com as mais modernas tecnologias frontend. Apresenta meus projetos reais em produção, experiência profissional atual na **Starcard (Fintech)** e formação técnica completa. 
-
-✨ **Destaques:**
-- Design minimalista moderno com glassmorphism
-- Efeito spotlight interativo que segue o mouse
-- Performance otimizada com lazy loading e code splitting
-- Cards translúcidos com bordas elegantes
-- Tipografia refinada com hierarquia visual clara
-
-**[EN]**  
-Professional portfolio built with cutting-edge frontend technologies, showcasing real production projects, current professional experience at **Starcard (Fintech)**, and complete technical background.
-
-✨ **Highlights:**
-- Modern minimalist design with glassmorphism
-- Interactive spotlight effect that follows the mouse
-- Optimized performance with lazy loading and code splitting
-- Translucent cards with elegant borders
-- Refined typography with clear visual hierarchy
-
----
-
-## ✨ Funcionalidades Principais
-
-### 🎨 Design & UX
-- **Glassmorphism Cards** - Cards translúcidos com bordas sutis e backdrop-blur
-- **Spotlight Background** - Efeito de gradiente que segue o cursor do mouse
-- **Tema Claro/Escuro** - Toggle manual com persistência
-- **Animações Suaves** - Framer Motion otimizado para performance
-- **Tipografia Refinada** - Hierarquia visual com slate-400 e line-height 1.7
-
-### 🌍 Internacionalização
-- **Bilíngue** - Português (PT-BR) e Inglês (EN-US)
-- **Troca Instantânea** - Sem reload da página
-- **Context API** - Gerenciamento global de idioma
-
-### 📱 Responsividade
-- **Mobile-First** - Design otimizado para dispositivos móveis
-- **Breakpoints Inteligentes** - Tailwind CSS breakpoints (sm, md, lg, xl)
-- **Touch-Friendly** - Interações otimizadas para touch screens
-
-### ⚡ Performance
-- **Lazy Loading** - Seções abaixo da dobra carregadas sob demanda
-- **Code Splitting** - Dynamic imports do Next.js
-- **Image Optimization** - Next/Image com AVIF e WebP
-- **Scroll Throttling** - RequestAnimationFrame para scroll events
-- **Memoized Components** - React.memo() para prevenir re-renders
-
-### 🎯 Seções
-1. **Hero** - Apresentação com CTA para projetos
-2. **Sobre** - Biografia profissional e soft skills
-3. **Habilidades** - Stack técnico em grid compacto
-4. **Projetos** - StarPeople (Produção) e RH System (Open Source)
-5. **Experiência** - Starcard e Personalcob
-6. **Formação** - Alura e UNIP
-7. **Contato** - Formulário funcional + informações diretas
-
----
-
-## 🛠️ Stack Tecnológica
-
-### Core
-- **Framework:** [Next.js 14.2](https://nextjs.org/) - App Router, React 18, Server Components
-- **Linguagem:** [TypeScript 5.4](https://www.typescriptlang.org/) - Type-safe development
-- **Styling:** [Tailwind CSS 3.4](https://tailwindcss.com/) - Utility-first CSS
-- **Animações:** [Framer Motion 11.0](https://www.framer.com/motion/) - Production-ready animations
-
-### UI/UX
-- **Ícones:** [Lucide React](https://lucide.dev/) - Beautiful & consistent icons
-- **Fonts:** [Inter](https://fonts.google.com/specimen/Inter) + [JetBrains Mono](https://www.jetbrains.com/lp/mono/)
-- **Theme:** [next-themes](https://github.com/pacocoursey/next-themes) - Dark mode support
-- **Forms:** [React Hook Form](https://react-hook-form.com/) - Performant form validation
-
-### Otimizações
-- **SWC Minify** - Compilador Rust ultra-rápido
-- **Image Optimization** - AVIF/WebP automatic conversion
-- **CSS Optimization** - Experimental CSS optimizer
-- **Bundle Analysis** - Code splitting automático
-
----
-
-## 🚀 Começando
-
-### Pré-requisitos
+## 🚀 Executar Localmente
 
 ```bash
-Node.js 18+ (recomendado: v20.x ou v24.x)
-npm 9+ ou yarn 1.22+
-```
-
-### Instalação Local
-
-```bash
-# 1. Clone o repositório
-git clone https://github.com/git-lucasoliveira/portfolio.git
-cd portfolio-website
-
-# 2. Instale as dependências
 npm install
-
-# 3. Execute o servidor de desenvolvimento
 npm run dev
-
-# 4. Abra http://localhost:3000
 ```
+
+Acesse: `http://localhost:3000`
+
+## 📧 Contato
+
+**Lucas de Oliveira Amorim**  
+📧 lucas.oliveiraa120505@gmail.com  
+💼 [LinkedIn](https://linkedin.com/in/lucasoliveiraamorim)  
+🐙 [GitHub](https://github.com/git-lucasoliveira)
+
+---
+
+## 📄 Licença
+
+MIT © 2025 Lucas de Oliveira Amorim
 
 ### Scripts Disponíveis
 
