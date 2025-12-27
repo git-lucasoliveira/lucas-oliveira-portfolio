@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import { LanguageProvider } from '@/contexts/LanguageContext'
+import MouseFollowEffect from '@/components/effects/MouseFollowEffect'
 import '@/styles/globals.css'
 
 const inter = Inter({
@@ -78,6 +79,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
+            <MouseFollowEffect />
             {children}
           </LanguageProvider>
         </ThemeProvider>
