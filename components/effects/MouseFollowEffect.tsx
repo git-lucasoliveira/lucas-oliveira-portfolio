@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { useTheme } from 'next-themes'
 
 export default function MouseFollowEffect() {
   const spotlightRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>()
+  const { resolvedTheme } = useTheme()
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -32,6 +34,10 @@ export default function MouseFollowEffect() {
     }
   }, [])
 
+  const gradient = resolvedTheme === 'light'
+    ? 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.12), transparent 40%)'
+    : 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%)'
+
   return (
     <div
       ref={spotlightRef}
@@ -39,7 +45,7 @@ export default function MouseFollowEffect() {
       style={{
         '--mouse-x': '50%',
         '--mouse-y': '50%',
-        background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%)',
+        background: gradient,
         zIndex: 1,
       } as React.CSSProperties}
     />
