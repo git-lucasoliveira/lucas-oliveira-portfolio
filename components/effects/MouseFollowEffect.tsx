@@ -40,7 +40,7 @@ export default function MouseFollowEffect() {
         '--mouse-x': '50%',
         '--mouse-y': '50%',
         background: 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%)',
-        zIndex: 0,
+        zIndex: 1,
       } as React.CSSProperties}
     />
   )
