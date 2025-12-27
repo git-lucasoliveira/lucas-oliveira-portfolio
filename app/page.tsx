@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer'
 import HeroSection from '@/components/sections/HeroSection'
 import LoadingScreen from '@/components/effects/LoadingScreen'
 import BackToTop from '@/components/effects/BackToTop'
+import AnimatedBackground from '@/components/effects/AnimatedBackground'
 
 // Lazy load below-the-fold sections for better performance
 const AboutSection = dynamic(() => import('@/components/sections/AboutSection'), {
@@ -28,6 +29,7 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
 export default function Home() {
   return (
     <>
+      <AnimatedBackground />
       <LoadingScreen />
       <Header />
       <main className="overflow-x-hidden">
