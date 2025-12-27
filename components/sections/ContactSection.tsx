@@ -74,7 +74,7 @@ function ContactSection() {
                     id="name"
                     {...register('name', { required: true })}
                     type="text"
-                    className="w-full px-4 py-3 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 border-0 focus:ring-2 focus:ring-blue-500/50 transition-all font-light text-text-primary-light dark:text-text-primary-dark placeholder:text-slate-500"
+                    className="w-full px-4 py-3 rounded-lg bg-slate-200/50 dark:bg-slate-800/50 border-0 focus:ring-2 focus:ring-blue-500/50 transition-all font-light text-text-primary-light dark:text-text-primary-dark placeholder:text-slate-500 dark:placeholder:text-slate-500"
                     placeholder={language === 'pt' ? 'Seu nome' : 'Your name'}
                   />
                   {errors.name && (
@@ -93,7 +93,7 @@ function ContactSection() {
                       pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                     })}
                     type="email"
-                    className="w-full px-4 py-3 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 border-0 focus:ring-2 focus:ring-blue-500/50 transition-all font-light text-text-primary-light dark:text-text-primary-dark placeholder:text-slate-500"
+                    className="w-full px-4 py-3 rounded-lg bg-slate-200/50 dark:bg-slate-800/50 border-0 focus:ring-2 focus:ring-blue-500/50 transition-all font-light text-text-primary-light dark:text-text-primary-dark placeholder:text-slate-500 dark:placeholder:text-slate-500"
                     placeholder="seuemail@exemplo.com"
                   />
                   {errors.email && (
@@ -109,7 +109,7 @@ function ContactSection() {
                     id="message"
                     {...register('message', { required: true })}
                     rows={5}
-                    className="w-full px-4 py-3 rounded-lg bg-slate-800/50 dark:bg-slate-800/50 border-0 focus:ring-2 focus:ring-blue-500/50 transition-all resize-none font-light text-text-primary-light dark:text-text-primary-dark placeholder:text-slate-500"
+                    className="w-full px-4 py-3 rounded-lg bg-slate-200/50 dark:bg-slate-800/50 border-0 focus:ring-2 focus:ring-blue-500/50 transition-all resize-none font-light text-text-primary-light dark:text-text-primary-dark placeholder:text-slate-500 dark:placeholder:text-slate-500"
                     placeholder={language === 'pt' ? 'Conte-me sobre seu projeto...' : 'Tell me about your project...'}
                   />
                   {errors.message && (
@@ -163,7 +163,7 @@ function ContactSection() {
                   </a>
                   <button
                     onClick={copyEmail}
-                    className="ml-2 p-2 rounded-lg hover:bg-slate-800/50 transition-colors relative"
+                    className="ml-2 p-2 rounded-lg hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors relative"
                     aria-label={t.contact.copyEmail}
                   >
                     {copied ? (
@@ -205,7 +205,7 @@ function ContactSection() {
                     href={socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark text-sm font-light"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-300/50 dark:hover:bg-slate-800 transition-colors text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark text-sm font-light"
                     aria-label="GitHub"
                   >
                     <Github className="w-5 h-5" />
@@ -215,7 +215,7 @@ function ContactSection() {
                     href={socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/50 hover:bg-slate-800 transition-colors text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark text-sm font-light"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-300/50 dark:hover:bg-slate-800 transition-colors text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark text-sm font-light"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
