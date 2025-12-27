@@ -1,42 +1,86 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
-  <!-- Spider-Man iconic logo -->
+  <!-- Spider-Man Modern Logo -->
   <defs>
-    <radialGradient id="spiderGrad" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
-    </radialGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff0000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0000;stop-opacity:1" />
+    </linearGradient>
   </defs>
   
-  <!-- Body (center oval) -->
-  <ellipse cx="100" cy="100" rx="18" ry="28" fill="url(#spiderGrad)"/>
+  <!-- Central body (shield shape) -->
+  <path d="M 100 50 
+           L 110 75 L 115 90 L 115 110 L 110 125 L 100 140
+           L 90 125 L 85 110 L 85 90 L 90 75 Z" 
+        fill="url(#redGrad)"/>
   
-  <!-- Head (small circle at top) -->
-  <ellipse cx="100" cy="65" rx="12" ry="15" fill="url(#spiderGrad)"/>
+  <!-- Head (top point) -->
+  <ellipse cx="100" cy="55" rx="8" ry="12" fill="url(#redGrad)"/>
   
-  <!-- Upper legs (4 pairs, angled upward) -->
-  <!-- Left side upper -->
-  <path d="M 82 75 Q 50 60 30 45 L 25 48 Q 48 65 80 78 Z" fill="url(#spiderGrad)"/>
-  <path d="M 80 85 Q 45 75 20 65 L 16 69 Q 43 80 78 88 Z" fill="url(#spiderGrad)"/>
+  <!-- Upper left legs (curved) -->
+  <path d="M 90 70 
+           Q 60 50 45 40
+           Q 40 38 38 42
+           Q 40 46 45 48
+           Q 62 58 88 75
+           Z" 
+        fill="url(#redGrad)"/>
   
-  <!-- Right side upper -->
-  <path d="M 118 75 Q 150 60 170 45 L 175 48 Q 152 65 120 78 Z" fill="url(#spiderGrad)"/>
-  <path d="M 120 85 Q 155 75 180 65 L 184 69 Q 157 80 122 88 Z" fill="url(#spiderGrad)"/>
+  <path d="M 88 85
+           Q 55 70 35 60
+           Q 30 58 28 62
+           Q 30 67 35 68
+           Q 57 78 86 90
+           Z" 
+        fill="url(#redGrad)"/>
   
-  <!-- Middle legs (horizontal-ish) -->
-  <!-- Left side middle -->
-  <path d="M 82 100 Q 50 100 25 95 L 22 100 Q 48 106 80 105 Z" fill="url(#spiderGrad)"/>
-  <path d="M 82 110 Q 48 115 20 115 L 18 120 Q 46 121 80 115 Z" fill="url(#spiderGrad)"/>
+  <!-- Upper right legs (curved) -->
+  <path d="M 110 70
+           Q 140 50 155 40
+           Q 160 38 162 42
+           Q 160 46 155 48
+           Q 138 58 112 75
+           Z" 
+        fill="url(#redGrad)"/>
   
-  <!-- Right side middle -->
-  <path d="M 118 100 Q 150 100 175 95 L 178 100 Q 152 106 120 105 Z" fill="url(#spiderGrad)"/>
-  <path d="M 118 110 Q 152 115 180 115 L 182 120 Q 154 121 120 115 Z" fill="url(#spiderGrad)"/>
+  <path d="M 112 85
+           Q 145 70 165 60
+           Q 170 58 172 62
+           Q 170 67 165 68
+           Q 143 78 114 90
+           Z" 
+        fill="url(#redGrad)"/>
   
-  <!-- Lower legs (angled downward) -->
-  <!-- Left side lower -->
-  <path d="M 85 125 Q 55 140 35 155 L 38 160 Q 60 145 87 130 Z" fill="url(#spiderGrad)"/>
-  <path d="M 88 135 Q 60 152 42 170 L 46 175 Q 65 157 90 140 Z" fill="url(#spiderGrad)"/>
+  <!-- Lower left legs (curved downward) -->
+  <path d="M 88 105
+           Q 55 115 35 125
+           Q 30 127 28 132
+           Q 30 137 35 138
+           Q 57 128 86 110
+           Z" 
+        fill="url(#redGrad)"/>
   
-  <!-- Right side lower -->
-  <path d="M 115 125 Q 145 140 165 155 L 162 160 Q 140 145 113 130 Z" fill="url(#spiderGrad)"/>
-  <path d="M 112 135 Q 140 152 158 170 L 154 175 Q 135 157 110 140 Z" fill="url(#spiderGrad)"/>
+  <path d="M 90 120
+           Q 60 140 45 155
+           Q 40 158 38 163
+           Q 40 167 45 168
+           Q 62 153 88 130
+           Z" 
+        fill="url(#redGrad)"/>
+  
+  <!-- Lower right legs (curved downward) -->
+  <path d="M 112 105
+           Q 145 115 165 125
+           Q 170 127 172 132
+           Q 170 137 165 138
+           Q 143 128 114 110
+           Z" 
+        fill="url(#redGrad)"/>
+  
+  <path d="M 110 120
+           Q 140 140 155 155
+           Q 160 158 162 163
+           Q 160 167 155 168
+           Q 138 153 112 130
+           Z" 
+        fill="url(#redGrad)"/>
 </svg>
