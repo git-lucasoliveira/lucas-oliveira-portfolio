@@ -1,24 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Spider body -->
-  <ellipse cx="32" cy="40" rx="12" ry="16" fill="#1e293b"/>
-  <circle cx="32" cy="24" r="10" fill="#1e293b"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <!-- Spider-Man iconic logo -->
+  <defs>
+    <radialGradient id="spiderGrad" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </radialGradient>
+  </defs>
   
-  <!-- Eyes -->
-  <circle cx="28" cy="22" r="2.5" fill="#ef4444"/>
-  <circle cx="36" cy="22" r="2.5" fill="#ef4444"/>
+  <!-- Body (center oval) -->
+  <ellipse cx="100" cy="100" rx="18" ry="28" fill="url(#spiderGrad)"/>
   
-  <!-- Legs -->
-  <path d="M 20 35 Q 8 30 4 25" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 20 38 Q 6 38 2 40" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 20 42 Q 8 48 4 54" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 20 45 Q 10 52 6 60" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Head (small circle at top) -->
+  <ellipse cx="100" cy="65" rx="12" ry="15" fill="url(#spiderGrad)"/>
   
-  <path d="M 44 35 Q 56 30 60 25" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 44 38 Q 58 38 62 40" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 44 42 Q 56 48 60 54" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 44 45 Q 54 52 58 60" stroke="#1e293b" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Upper legs (4 pairs, angled upward) -->
+  <!-- Left side upper -->
+  <path d="M 82 75 Q 50 60 30 45 L 25 48 Q 48 65 80 78 Z" fill="url(#spiderGrad)"/>
+  <path d="M 80 85 Q 45 75 20 65 L 16 69 Q 43 80 78 88 Z" fill="url(#spiderGrad)"/>
   
-  <!-- Web detail -->
-  <circle cx="32" cy="32" r="28" stroke="#64748b" stroke-width="0.5" fill="none" opacity="0.3"/>
-  <circle cx="32" cy="32" r="20" stroke="#64748b" stroke-width="0.5" fill="none" opacity="0.3"/>
+  <!-- Right side upper -->
+  <path d="M 118 75 Q 150 60 170 45 L 175 48 Q 152 65 120 78 Z" fill="url(#spiderGrad)"/>
+  <path d="M 120 85 Q 155 75 180 65 L 184 69 Q 157 80 122 88 Z" fill="url(#spiderGrad)"/>
+  
+  <!-- Middle legs (horizontal-ish) -->
+  <!-- Left side middle -->
+  <path d="M 82 100 Q 50 100 25 95 L 22 100 Q 48 106 80 105 Z" fill="url(#spiderGrad)"/>
+  <path d="M 82 110 Q 48 115 20 115 L 18 120 Q 46 121 80 115 Z" fill="url(#spiderGrad)"/>
+  
+  <!-- Right side middle -->
+  <path d="M 118 100 Q 150 100 175 95 L 178 100 Q 152 106 120 105 Z" fill="url(#spiderGrad)"/>
+  <path d="M 118 110 Q 152 115 180 115 L 182 120 Q 154 121 120 115 Z" fill="url(#spiderGrad)"/>
+  
+  <!-- Lower legs (angled downward) -->
+  <!-- Left side lower -->
+  <path d="M 85 125 Q 55 140 35 155 L 38 160 Q 60 145 87 130 Z" fill="url(#spiderGrad)"/>
+  <path d="M 88 135 Q 60 152 42 170 L 46 175 Q 65 157 90 140 Z" fill="url(#spiderGrad)"/>
+  
+  <!-- Right side lower -->
+  <path d="M 115 125 Q 145 140 165 155 L 162 160 Q 140 145 113 130 Z" fill="url(#spiderGrad)"/>
+  <path d="M 112 135 Q 140 152 158 170 L 154 175 Q 135 157 110 140 Z" fill="url(#spiderGrad)"/>
 </svg>
