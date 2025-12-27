@@ -37,12 +37,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'Lucas de Oliveira Amorim' }],
   creator: 'Lucas de Oliveira Amorim',
   icons: {
-    icon: [
-      { url: '/spider.svg', type: 'image/svg+xml' },
-      { url: '/spider.svg', type: 'image/svg+xml', sizes: '32x32' },
-      { url: '/spider.svg', type: 'image/svg+xml', sizes: '16x16' },
-    ],
-    apple: { url: '/spider.svg', type: 'image/svg+xml' },
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
   openGraph: {
     type: 'website',
