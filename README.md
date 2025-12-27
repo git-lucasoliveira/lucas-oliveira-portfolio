@@ -241,7 +241,7 @@ Backend Java Developer @ Starcard
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-lucasoliveiraamorim-blue?logo=linkedin)](https://www.linkedin.com/in/lucasoliveiraamorim/)
 [![GitHub](https://img.shields.io/badge/GitHub-git--lucasoliveira-black?logo=github)](https://github.com/git-lucasoliveira)
-[![Email](https://img.shields.io/badge/Email-lucasaoliveira777%40gmail.com-red?logo=gmail)](mailto:lucasaoliveira777@gmail.com)
+[![Email](https://img.shields.io/badge/Email-lucasaoliveira777%40gmail.com-red?logo=gmail)](mailto:lucasoliveiraa1210505@gmail.com)
 
 ---
 
