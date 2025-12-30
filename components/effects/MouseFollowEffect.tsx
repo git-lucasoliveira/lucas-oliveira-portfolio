@@ -1,40 +1,41 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useTheme } from 'next-themes'
 
 export default function MouseFollowEffect() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const cursorRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>()
-  const { resolvedTheme } = useTheme()
-  const [mousePos, setMousePos] = useState({ x: -9999, y: -9999 })
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
-    let targetX = -9999
-    let targetY = -9999
-    let currentX = -9999
-    let currentY = -9999
+    let mouseX = 0
+    let mouseY = 0
+    let currentX = 0
+    let currentY = 0
+    const speed = 0.15
 
     const handleMouseMove = (e: MouseEvent) => {
       if (!isActive) {
         setIsActive(true)
       }
-      targetX = e.clientX
-      targetY = e.clientY
+      mouseX = e.clientX
+      mouseY = e.clientY
     }
 
-    const updatePosition = () => {
-      // Smooth interpolation
-      currentX += (targetX - currentX) * 0.1
-      currentY += (targetY - currentY) * 0.1
+    const animateCursor = () => {
+      currentX += (mouseX - currentX) * speed
+      currentY += (mouseY - currentY) * speed
 
-      setMousePos({ x: currentX, y: currentY })
-      rafRef.current = requestAnimationFrame(updatePosition)
+      if (cursorRef.current) {
+        cursorRef.current.style.left = `${currentX}px`
+        cursorRef.current.style.top = `${currentY}px`
+      }
+
+      rafRef.current = requestAnimationFrame(animateCursor)
     }
 
     document.addEventListener('mousemove', handleMouseMove, { passive: true })
-    rafRef.current = requestAnimationFrame(updatePosition)
+    rafRef.current = requestAnimationFrame(animateCursor)
     
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
@@ -46,18 +47,20 @@ export default function MouseFollowEffect() {
 
   if (!isActive) return null
 
-  const gradient = resolvedTheme === 'light'
-    ? `radial-gradient(circle 350px at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.08), transparent 70%)`
-    : `radial-gradient(circle 350px at ${mousePos.x}px ${mousePos.y}px, rgba(59, 130, 246, 0.06), transparent 70%)`
-
   return (
     <div
-      ref={containerRef}
-      className="fixed inset-0 pointer-events-none"
+      ref={cursorRef}
+      className="fixed pointer-events-none"
       style={{
-        background: gradient,
-        zIndex: 1,
-        transition: 'opacity 0.3s ease',
+        width: '20px',
+        height: '20px',
+        backgroundColor: 'rgba(59, 130, 246, 0.4)',
+        borderRadius: '50%',
+        transform: 'translate(-50%, -50%)',
+        zIndex: 999999,
+        boxShadow: '0 0 15px rgba(59, 130, 246, 0.6), 0 0 30px rgba(59, 130, 246, 0.4), 0 0 45px rgba(59, 130, 246, 0.2)',
+        willChange: 'transform',
+        backfaceVisibility: 'hidden',
       }}
     />
   )
