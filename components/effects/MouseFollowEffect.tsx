@@ -52,9 +52,10 @@ export default function MouseFollowEffect() {
           '--mouse-x': '-9999px',
           '--mouse-y': '-9999px',
           background: resolvedTheme === 'light'
-            ? 'radial-gradient(600px at var(--mouse-x, -9999px) var(--mouse-y, -9999px), rgba(59, 130, 246, 0.06), transparent 60%)'
-            : 'radial-gradient(600px at var(--mouse-x, -9999px) var(--mouse-y, -9999px), rgba(59, 130, 246, 0.04), transparent 60%)',
+            ? 'radial-gradient(400px at var(--mouse-x, -9999px) var(--mouse-y, -9999px), rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02) 40%, transparent 80%)'
+            : 'radial-gradient(400px at var(--mouse-x, -9999px) var(--mouse-y, -9999px), rgba(59, 130, 246, 0.04), rgba(59, 130, 246, 0.015) 40%, transparent 80%)',
           zIndex: 1,
+          filter: 'blur(20px)',
         } as React.CSSProperties}
       />
       
@@ -65,9 +66,10 @@ export default function MouseFollowEffect() {
           '--mouse-x': '-9999px',
           '--mouse-y': '-9999px',
           background: resolvedTheme === 'light'
-            ? 'radial-gradient(500px at calc(var(--mouse-x, -9999px) + 80px) calc(var(--mouse-y, -9999px) + 80px), rgba(34, 211, 238, 0.04), transparent 50%)'
-            : 'radial-gradient(500px at calc(var(--mouse-x, -9999px) + 80px) calc(var(--mouse-y, -9999px) + 80px), rgba(34, 211, 238, 0.025), transparent 50%)',
+            ? 'radial-gradient(320px at calc(var(--mouse-x, -9999px) + 60px) calc(var(--mouse-y, -9999px) + 60px), rgba(34, 211, 238, 0.04), rgba(34, 211, 238, 0.015) 35%, transparent 75%)'
+            : 'radial-gradient(320px at calc(var(--mouse-x, -9999px) + 60px) calc(var(--mouse-y, -9999px) + 60px), rgba(34, 211, 238, 0.025), rgba(34, 211, 238, 0.01) 35%, transparent 75%)',
           zIndex: 1,
+          filter: 'blur(20px)',
         } as React.CSSProperties}
       />
       
@@ -78,9 +80,10 @@ export default function MouseFollowEffect() {
           '--mouse-x': '-9999px',
           '--mouse-y': '-9999px',
           background: resolvedTheme === 'light'
-            ? 'radial-gradient(400px at calc(var(--mouse-x, -9999px) - 60px) calc(var(--mouse-y, -9999px) - 60px), rgba(168, 85, 247, 0.03), transparent 50%)'
-            : 'radial-gradient(400px at calc(var(--mouse-x, -9999px) - 60px) calc(var(--mouse-y, -9999px) - 60px), rgba(168, 85, 247, 0.02), transparent 50%)',
+            ? 'radial-gradient(280px at calc(var(--mouse-x, -9999px) - 50px) calc(var(--mouse-y, -9999px) - 50px), rgba(168, 85, 247, 0.03), rgba(168, 85, 247, 0.01) 35%, transparent 75%)'
+            : 'radial-gradient(280px at calc(var(--mouse-x, -9999px) - 50px) calc(var(--mouse-y, -9999px) - 50px), rgba(168, 85, 247, 0.02), rgba(168, 85, 247, 0.008) 35%, transparent 75%)',
           zIndex: 1,
+          filter: 'blur(20px)',
         } as React.CSSProperties}
       />
     </>
