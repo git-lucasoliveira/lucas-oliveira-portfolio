@@ -1,15 +1,21 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
 
 export default function MouseFollowEffect() {
   const spotlightRef = useRef<HTMLDivElement>(null)
   const rafRef = useRef<number>()
   const { resolvedTheme } = useTheme()
+  const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
+      // Ativar o efeito no primeiro movimento
+      if (!isActive) {
+        setIsActive(true)
+      }
+
       // Cancel previous frame if still pending
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current)
@@ -32,7 +38,9 @@ export default function MouseFollowEffect() {
         cancelAnimationFrame(rafRef.current)
       }
     }
-  }, [])
+  }, [isActive])
+
+  if (!isActive) return null
 
   return (
     <>
