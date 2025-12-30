@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide system cursor */
+* {
+  cursor: none !important;
+}
+
 /* ============================================
    🎨 GLASSMORPHISM & MINIMAL CARDS
    ============================================ */
