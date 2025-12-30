@@ -35,18 +35,27 @@ export default function MouseFollowEffect() {
   }, [])
 
   const gradient = resolvedTheme === 'light'
-    ? 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.12), transparent 40%)'
-    : 'radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.08), transparent 40%)'
+    ? `radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+       rgba(96, 165, 250, 0.08), 
+       rgba(59, 130, 246, 0.05) 30%,
+       rgba(37, 99, 235, 0.02) 50%,
+       transparent 70%)`
+    : `radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
+       rgba(96, 165, 250, 0.06), 
+       rgba(59, 130, 246, 0.04) 30%,
+       rgba(37, 99, 235, 0.015) 50%,
+       transparent 70%)`
 
   return (
     <div
       ref={spotlightRef}
-      className="fixed inset-0 pointer-events-none"
+      className="fixed inset-0 pointer-events-none transition-all duration-300 ease-out"
       style={{
         '--mouse-x': '50%',
         '--mouse-y': '50%',
         background: gradient,
         zIndex: 1,
+        filter: 'blur(40px)',
       } as React.CSSProperties}
     />
   )
