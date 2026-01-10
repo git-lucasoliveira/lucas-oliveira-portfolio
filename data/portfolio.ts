@@ -54,9 +54,9 @@ export const skills: Skill[] = [
   { name: 'JPA/Hibernate', category: 'database', level: 4 },
   
   // Cloud & DevOps
-  { name: 'AWS EC2', category: 'cloud', level: 4 },
+  { name: 'AWS', category: 'cloud', level: 4 },
   { name: 'Docker', category: 'cloud', level: 4 },
-  { name: 'Linux (Ubuntu)', category: 'cloud', level: 3 },
+  { name: 'Linux', category: 'cloud', level: 3 },
   
   // Tools
   { name: 'Git', category: 'tools', level: 5 },
@@ -112,13 +112,13 @@ export const experiences: Experience[] = [
         'Desenvolvimento do sistema StarPeople com Java e Spring Boot',
         'Deploy GLPI em AWS EC2, ECS, RDS com Docker e Linux',
         'Banco de Dados: Planejamento e estruturação de banco de dados corporativo no SQL Server',
-        'Suporte Técnico Nível: Resolução de incidentes complexos, manutenção de ativos e segurança da informação',
+        'Suporte Técnico Nível: Resolução de incidentes, manutenção de ativos e segurança da informação',
       ],
       en: [
         'Development of StarPeople system with Java and Spring Boot',
         'GLPI deployment on AWS EC2 with Docker and Linux',
         'Database: Planning and structuring corporate database in SQL Server',
-        'Technical Support: Resolution of complex incidents, asset maintenance and information security',
+        'Technical Support: Resolution of incidents, asset maintenance and information security',
       ],
     },
     type: 'work',
@@ -161,13 +161,13 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Java 17/21: POO, Collections, Streams',
-        'Spring Boot 3, JPA/Hibernate, Spring Security',
+        'Java: POO, Collections, Streams',
+        'Spring Boot, JPA/Hibernate, Spring Security',
         'APIs REST com Swagger e boas práticas',
       ],
       en: [
-        'Java 17/21: OOP, Collections, Streams',
-        'Spring Boot 3, JPA/Hibernate, Spring Security',
+        'Java: OOP, Collections, Streams',
+        'Spring Boot, JPA/Hibernate, Spring Security',
         'REST APIs with Swagger and best practices',
       ],
     },
@@ -219,12 +219,12 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Engenharia de Software e POO: Foco em Programação Orientada a Objetos (Java), Análise de Sistemas e Design de Software',
+        'Engenharia de Software e POO: Foco em Programação Orientada a Objetos, Análise de Sistemas e Design de Software',
         'Banco de Dados: Modelagem de dados e SQL',
         'Gestão e Projetos: Gerenciamento de Projetos de Software e Metodologias Ágeis',
       ],
       en: [
-        'Software Engineering and OOP: Focus on Object-Oriented Programming (Java), Systems Analysis and Software Design',
+        'Software Engineering and OOP: Focus on Object-Oriented Programming, Systems Analysis and Software Design',
         'Databases: Data modeling and SQL',
         'Management and Projects: Software Project Management and Agile Methodologies',
       ],
