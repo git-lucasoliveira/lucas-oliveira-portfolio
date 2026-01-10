@@ -45,11 +45,13 @@ export const skills: Skill[] = [
   { name: 'Spring Boot', category: 'backend', level: 5 },
   { name: 'API REST', category: 'backend', level: 5 },
   { name: 'Spring Security', category: 'backend', level: 4 },
+  { name: 'Spring Data JPA', category: 'backend', level: 4 },
   { name: 'JWT', category: 'backend', level: 4 },
   
   // Database
   { name: 'SQL Server', category: 'database', level: 5 },
   { name: 'MySQL', category: 'database', level: 4 },
+  { name: 'PostgreSQL', category: 'database', level: 4 },
   { name: 'JPA/Hibernate', category: 'database', level: 4 },
   
   // Cloud & DevOps
@@ -117,7 +119,7 @@ export const experiences: Experience[] = [
         'Development of StarPeople system with Java and Spring Boot',
         'GLPI deployment on AWS EC2 with Docker and Linux',
         'Database: Planning and structuring corporate database in SQL Server',
-        'Level 2 Technical Support: Resolution of complex incidents, asset maintenance and information security',
+        'Technical Support: Resolution of complex incidents, asset maintenance and information security',
       ],
     },
     type: 'work',
@@ -137,12 +139,12 @@ export const experiences: Experience[] = [
       pt: [
         'Análise de dados e extração de relatórios usando SQL',
         'Manutenção de redes e configuração de ambientes',
-        'Diagnóstico Técnico: Resolução de problemas relacionados a sistemas operacionais e aplicativos',
+        'Suporte Técnico Nível: Resolução de incidentes complexos, manutenção de ativos e segurança da informação',
       ],
       en: [
         'Data analysis and report extraction using SQL',
         'Network maintenance and environment configuration',
-        'Technical Diagnostics: Resolution of problems related to operating systems and applications',
+        'Technical Support: Resolution of complex incidents, asset maintenance and information security',
       ],
     },
     type: 'work',
