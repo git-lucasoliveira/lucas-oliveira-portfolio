@@ -86,11 +86,11 @@ export const projects: Project[] = [
     id: 'project-2',
     title: 'RH System - Open Source',
     description: {
-      pt: 'Versão Open Source do sistema de onboarding, criada como showcase de arquitetura enterprise e boas práticas. Implementa autenticação JWT, Spring Security, auditoria completa, validações e geração automática de documentos, disponível publicamente para estudo e contribuições.',
-      en: 'Open Source version of the onboarding system, created as showcase of enterprise architecture and best practices. Implements JWT authentication, Spring Security, complete audit logs, validations and automatic document generation, publicly available for study and contributions.',
+      pt: 'Projeto desenvolvido para demonstrar arquitetura Enterprise e padrões de segurança com Spring Security. Baseado em desafios comuns de sistemas de RH corporativos.',
+      en: 'This project was developed to demonstrate Enterprise architecture and security standards using Spring Security. It\'s based on common challenges faced by corporate HR systems.',
     },
     technologies: ['Java', 'Spring Security', 'JWT', 'JPA', 'Bean Validation', 'jsPDF'],
-    githubUrl: 'https://github.com/git-lucasoliveira/rh-system',
+    githubUrl: 'https://github.com/git-lucasoliveira/onboarding-manager',
     featured: true,
   },
 ]
