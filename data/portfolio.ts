@@ -7,10 +7,11 @@ export interface Project {
     en: string
   }
   technologies: string[]
-  githubUrl: string
+  githubUrl?: string
   demoUrl?: string
   image?: string
   featured: boolean
+  isPrivate?: boolean
 }
 
 export interface Experience {
@@ -71,23 +72,23 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
   {
     id: 'project-1',
-    title: 'StarPeople - Enterprise Solution',
+    title: 'StarPeople',
     description: {
-      pt: 'Solução corporativa desenvolvida e implantada em produção na Starcard. O sistema centraliza a gestão de colaboradores e automatiza fluxos do RH, rodando em ambiente Cloud (AWS).',
-      en: 'Corporate solution developed and deployed to production at Starcard. The system centralizes employee management and automates HR workflows, running in Cloud environment (AWS).',
+      pt: 'Sistema implantado em produção no Grupo Starbank que automatiza onboarding de colaboradores. Elimina processos manuais gerando termos de responsabilidade em PDF, gerenciando equipamentos TI e integrando fluxos entre RH e Tecnologia com controle de acesso baseado em roles.',
+      en: 'System deployed to production at Starbank Group that automates employee onboarding. Eliminates manual processes by generating responsibility terms in PDF, managing IT equipment and integrating workflows between HR and IT with role-based access control.',
     },
-    technologies: ['Java 21', 'Spring Boot 3', 'SQL Server', 'AWS EC2', 'Docker'],
-    githubUrl: 'https://github.com/git-lucasoliveira/people-manager',
+    technologies: ['Java', 'Spring Boot', 'SQL Server', 'Docker'],
     featured: true,
+    isPrivate: true,
   },
   {
     id: 'project-2',
-    title: 'RH System - API & Architecture',
+    title: 'RH System - Open Source',
     description: {
-      pt: 'Versão Open Source focada em arquitetura de software e boas práticas. Este projeto demonstra implementação avançada de segurança, documentação com Swagger e padrões de projeto para escalabilidade.',
-      en: 'Open Source version focused on software architecture and best practices. This project demonstrates advanced security implementation, Swagger documentation and design patterns for scalability.',
+      pt: 'Versão Open Source do sistema de onboarding, criada como showcase de arquitetura enterprise e boas práticas. Implementa autenticação JWT, Spring Security, auditoria completa, validações e geração automática de documentos, disponível publicamente para estudo e contribuições.',
+      en: 'Open Source version of the onboarding system, created as showcase of enterprise architecture and best practices. Implements JWT authentication, Spring Security, complete audit logs, validations and automatic document generation, publicly available for study and contributions.',
     },
-    technologies: ['Java 21', 'Spring Security', 'RBAC/JWT', 'Swagger/OpenAPI', 'JUnit', 'Design Patterns'],
+    technologies: ['Java', 'Spring Security', 'JWT', 'JPA', 'Bean Validation', 'jsPDF'],
     githubUrl: 'https://github.com/git-lucasoliveira/rh-system',
     featured: true,
   },
@@ -107,13 +108,13 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Desenvolvimento do sistema StarPeople com Java 21 e Spring Boot 3',
-        'Deploy GLPI em AWS EC2 com Docker e Linux',
+        'Desenvolvimento do sistema StarPeople com Java e Spring Boot',
+        'Deploy GLPI em AWS EC2, ECS, RDS com Docker e Linux',
         'Banco de Dados: Planejamento e estruturação de banco de dados corporativo no SQL Server',
-        'Suporte Técnico Nível 2: Resolução de incidentes complexos, manutenção de ativos e segurança da informação',
+        'Suporte Técnico Nível: Resolução de incidentes complexos, manutenção de ativos e segurança da informação',
       ],
       en: [
-        'Development of StarPeople system with Java 21 and Spring Boot 3',
+        'Development of StarPeople system with Java and Spring Boot',
         'GLPI deployment on AWS EC2 with Docker and Linux',
         'Database: Planning and structuring corporate database in SQL Server',
         'Level 2 Technical Support: Resolution of complex incidents, asset maintenance and information security',

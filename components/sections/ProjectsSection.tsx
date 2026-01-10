@@ -1,7 +1,7 @@
 'use client'
 
-import React, { memo } from 'react'
-import { Github, ExternalLink } from 'lucide-react'
+import React, { memo, useState } from 'react'
+import { Github, ExternalLink, Lock } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
@@ -47,15 +47,25 @@ function ProjectsSection() {
 
                 {/* Links */}
                 <div className="flex gap-4" style={{ contain: 'layout' }}>
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    <Github className="w-4 h-4" />
-                    {t.projects.viewCode}
-                  </a>
+                  {project.isPrivate ? (
+                    <button
+                      onClick={() => alert(language === 'pt' ? 'Repositório Privado\n\nEste projeto está em produção e contém código proprietário da empresa.' : 'Private Repository\n\nThis project is in production and contains proprietary company code.')}
+                      className="project-link cursor-pointer"
+                    >
+                      <Lock className="w-4 h-4" />
+                      {language === 'pt' ? 'Repositório Privado' : 'Private Repository'}
+                    </button>
+                  ) : project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                    >
+                      <Github className="w-4 h-4" />
+                      {t.projects.viewCode}
+                    </a>
+                  ) : null}
                   {project.demoUrl && (
                     <a
                       href={project.demoUrl}
