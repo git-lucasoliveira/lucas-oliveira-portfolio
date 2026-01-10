@@ -185,12 +185,12 @@ border-radius: 12px
 **1. StarPeople - Enterprise Solution**
 - Stack: Java 21, Spring Boot 3, SQL Server, AWS EC2, Docker
 - Status: 🟢 Produção (Starcard)
-- Foco: Sistema corporativo de gestão de colaboradores
+- Foco: Sistema corporativo automatizador de processos
 
 **2. RH System - API & Architecture**
 - Stack: Java 21, Spring Security, JWT, Swagger, JUnit
 - Status: 📦 Open Source
-- Foco: Arquitetura, boas práticas e design patterns
+- Foco: Sistema de onboarding de colaboradores com autenticação JWT, auditoria completa e geração automática de documentos
 
 ### Stack Técnico (18 skills)
 

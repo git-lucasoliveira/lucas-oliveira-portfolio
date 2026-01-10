@@ -45,7 +45,6 @@ export const skills: Skill[] = [
   { name: 'Spring Boot', category: 'backend', level: 5 },
   { name: 'API REST', category: 'backend', level: 5 },
   { name: 'Spring Security', category: 'backend', level: 4 },
-  { name: 'Spring Data JPA', category: 'backend', level: 4 },
   { name: 'JWT', category: 'backend', level: 4 },
   
   // Database
