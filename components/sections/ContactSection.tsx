@@ -8,6 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
 import { socialLinks } from '@/data/portfolio'
+import emailjs from 'emailjs-com'
 
 interface FormData {
   name: string
@@ -36,8 +37,27 @@ function ContactSection() {
     setSubmitStatus(null)
 
     try {
-      // TODO: Implement actual email sending API
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+      if (!serviceId || !templateId || !publicKey) {
+        console.warn('EmailJS credentials missing. Check your .env file.')
+        throw new Error('Email service not configured')
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: data.name,
+          email: data.email,
+          message: data.message,
+          title: 'Contato via Portfólio',
+        },
+        publicKey
+      )
+
       setSubmitStatus('success')
       reset()
     } catch (error) {

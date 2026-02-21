@@ -26,8 +26,8 @@ export const en: Translations = {
   about: {
     title: 'About Me',
     paragraphs: [
-      'IT professional graduated in Systems Analysis and Development with interest in Software Development, Cloud Computing and Innovation.',
-      'My goal is to work where I can apply my knowledge in Java, databases and efficient systems focused on user experience. I am deepening my technical expertise through Alura\'s Backend Java Development program and applying knowledge in practice through personal projects hosted on GitHub.',
+      'Backend Developer focused on the Java ecosystem and Cloud Computing. Postgraduate student in Software Architecture at FIAP, with practical experience in creating RESTful APIs, process automation, and containerization (Docker/AWS).',
+      'Driven by agile methodologies (Scrum, Kanban) and best practices (SOLID, Clean Code). I have a strong aptitude for backend to frontend integrations and am currently deepening my academic studies in Quarkus and messaging (Kafka/RabbitMQ) to add value to the team\'s technical innovation projects.',
     ],
   },
   skills: {

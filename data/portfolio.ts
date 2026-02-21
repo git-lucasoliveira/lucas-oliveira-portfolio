@@ -46,25 +46,32 @@ export const skills: Skill[] = [
   { name: 'API REST', category: 'backend', level: 5 },
   { name: 'Spring Security', category: 'backend', level: 4 },
   { name: 'JWT', category: 'backend', level: 4 },
-  
+  { name: 'Quarkus', category: 'backend', level: 3 },
+  { name: 'Mensageria (Kafka/RabbitMQ)', category: 'backend', level: 3 },
+
   // Database
   { name: 'SQL Server', category: 'database', level: 5 },
   { name: 'MySQL', category: 'database', level: 4 },
   { name: 'PostgreSQL', category: 'database', level: 4 },
   { name: 'JPA/Hibernate', category: 'database', level: 4 },
-  
+  { name: 'NoSQL (Firestore)', category: 'database', level: 4 },
+  { name: 'PL/SQL', category: 'database', level: 3 },
+
   // Cloud & DevOps
   { name: 'AWS', category: 'cloud', level: 4 },
   { name: 'Docker', category: 'cloud', level: 4 },
   { name: 'Linux', category: 'cloud', level: 3 },
-  
+  { name: 'CI/CD', category: 'cloud', level: 3 },
+
   // Tools
-  { name: 'Git', category: 'tools', level: 5 },
-  { name: 'GitHub', category: 'tools', level: 5 },
+  { name: 'Git/GitHub', category: 'tools', level: 5 },
+  { name: 'JUnit/Mockito', category: 'tools', level: 4 },
   { name: 'Maven', category: 'tools', level: 4 },
   { name: 'Swagger/OpenAPI', category: 'tools', level: 4 },
-  
+
   // Other
+  { name: 'SOLID / Clean Arch', category: 'other', level: 4 },
+  { name: 'Metodologias Ágeis', category: 'other', level: 4 },
   { name: 'Python', category: 'other', level: 3 },
   { name: 'JavaScript', category: 'other', level: 3 },
   { name: 'HTML/CSS', category: 'other', level: 3 },
@@ -75,10 +82,10 @@ export const projects: Project[] = [
     id: 'project-1',
     title: 'StarPeople',
     description: {
-      pt: 'Sistema implantado em produção no Grupo Starbank que automatiza onboarding de colaboradores. Elimina processos manuais gerando termos de responsabilidade em PDF, gerenciando equipamentos TI e integrando fluxos entre RH e Tecnologia com controle de acesso baseado em roles.',
-      en: 'System deployed to production at Starbank Group that automates employee onboarding. Eliminates manual processes by generating responsibility terms in PDF, managing IT equipment and integrating workflows between HR and IT with role-based access control.',
+      pt: 'Sistema implantado em produção no Grupo Starcard que centraliza o ciclo de vida de mais de 150 colaboradores. Otimizou em 85% o tempo de processos manuais com geração de relatórios PDF. Possui endpoints RESTful, proteção de dados com JWT Stateless e 80% de cobertura de testes com JUnit/Mockito.',
+      en: 'System deployed to production at Starcard Group that centralizes the lifecycle of more than 150 employees. Optimized manual processes time by 85% with PDF report generation. Features RESTful endpoints, data protection with Stateless JWT, and 80% test coverage with JUnit/Mockito.',
     },
-    technologies: ['Java', 'Spring Boot', 'SQL Server', 'Docker'],
+    technologies: ['Java', 'Spring Boot', 'SQL Server', 'Spring Security', 'JWT', 'Docker', 'JUnit', 'Mockito'],
     featured: true,
     isPrivate: true,
   },
@@ -99,8 +106,8 @@ export const experiences: Experience[] = [
   {
     id: 'exp-1',
     title: {
-      pt: 'Assistente de TI',
-      en: 'IT Assistant',
+      pt: 'Assistente de TI (Desenvolvimento Backend)',
+      en: 'IT Assistant (Backend Development)',
     },
     company: 'Starcard',
     period: {
@@ -109,16 +116,16 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Desenvolvimento do sistema StarPeople com Java e Spring Boot',
-        'Deploy GLPI em AWS EC2, ECS, RDS com Docker e Linux',
-        'Banco de Dados: Planejamento e estruturação de banco de dados corporativo no SQL Server',
-        'Suporte Técnico Nível: Resolução de incidentes, manutenção de ativos e segurança da informação',
+        'Orquestração do desenvolvimento backend do sistema StarPeople, centralizando o ciclo de vida de mais de 50 colaboradores e garantindo a integridade dos dados.',
+        'Automação de tarefas repetitivas com scripts Python e Power Automate, economizando mais de 15 horas mensais operacionais da equipe.',
+        'Otimização da infraestrutura em nuvem, reduzindo em 30% a latência do banco de dados Firestore (NoSQL).',
+        'Deploy do sistema GLPI 100% containerizado com Docker em ambiente Linux na infraestrutura AWS (EC2, ECR, RDS, S3).',
       ],
       en: [
-        'Development of StarPeople system with Java and Spring Boot',
-        'GLPI deployment on AWS EC2 with Docker and Linux',
-        'Database: Planning and structuring corporate database in SQL Server',
-        'Technical Support: Resolution of incidents, asset maintenance and information security',
+        'Orchestration of the backend development for the StarPeople system, centralizing the lifecycle of 50+ employees and ensuring data integrity.',
+        'Automation of repetitive tasks using Python scripts and Power Automate, saving over 15 hours per month.',
+        'Optimization of cloud infrastructure, reducing Firestore (NoSQL) database latency by 30%.',
+        'Deployment of the GLPI system 100% containerized with Docker in a Linux environment on AWS infrastructure (EC2, ECR, RDS, S3).',
       ],
     },
     type: 'work',
@@ -136,14 +143,14 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Análise de dados e extração de relatórios usando SQL',
-        'Manutenção de redes e configuração de ambientes',
-        'Suporte Técnico Nível: Resolução de incidentes complexos, manutenção de ativos e segurança da informação',
+        'Resolução de rotinas de suporte N1/N2, diagnosticando e corrigindo falhas para mais de 30 usuários internos e garantindo 95% de cumprimento do SLA.',
+        'Configuração e manutenção da infraestrutura de rede e ambientes de trabalho.',
+        'Garantia de 100% de estabilidade tecnológica contínua para um parque de 40 equipamentos.',
       ],
       en: [
-        'Data analysis and report extraction using SQL',
-        'Network maintenance and environment configuration',
-        'Technical Support: Resolution of complex incidents, asset maintenance and information security',
+        'Resolution of N1/N2 support routines, diagnosing and fixing flaws for over 30 internal users and guaranteeing 95% SLA compliance.',
+        'Configuration and maintenance of network infrastructure and work environments.',
+        'Ensuring 100% continuous technological stability for a fleet of 40 equipments.',
       ],
     },
     type: 'work',
@@ -151,24 +158,24 @@ export const experiences: Experience[] = [
   {
     id: 'edu-1',
     title: {
-      pt: 'Carreira Backend Java',
-      en: 'Backend Java Career',
+      pt: 'Pós-graduação em Arquitetura e Desenvolvimento Java',
+      en: 'Postgraduate in Architecture and Java Development',
     },
-    company: 'Alura',
+    company: 'FIAP',
     period: {
-      start: 'Nov 2025',
-      end: 'Mai 2026',
+      start: 'Mar 2026',
+      end: 'Mar 2027',
     },
     description: {
       pt: [
-        'Java: POO, Collections, Streams',
-        'Spring Boot, JPA/Hibernate, Spring Security',
-        'APIs REST com Swagger e boas práticas',
+        'Arquitetura de Microsserviços e Cloud Computing',
+        'Quarkus, Mensageria (Kafka, RabbitMQ)',
+        'Design Patterns e Testes Avançados',
       ],
       en: [
-        'Java: OOP, Collections, Streams',
-        'Spring Boot, JPA/Hibernate, Spring Security',
-        'REST APIs with Swagger and best practices',
+        'Microservices Architecture and Cloud Computing',
+        'Quarkus, Messaging (Kafka, RabbitMQ)',
+        'Design Patterns and Advanced Testing',
       ],
     },
     type: 'education',
@@ -176,46 +183,13 @@ export const experiences: Experience[] = [
   {
     id: 'edu-2',
     title: {
-      pt: 'Formação Engenharia de Software',
-      en: 'Software Engineering Training',
-    },
-    company: 'Alura',
-    period: {
-      start: 'Jan 2026',
-      end: 'Jun 2026',
-    },
-    description: {
-      pt: [
-        'Gestão de requisitos',
-        'Arquitetura e design de sistemas',
-        'Padrões de projeto',
-        'Banco de dados',
-        'Testes de software',
-        'Gestão de projetos',
-        'Infraestrutura e deploy',
-      ],
-      en: [
-        'Requirements management',
-        'Systems architecture and design',
-        'Design patterns',
-        'Databases',
-        'Software testing',
-        'Project management',
-        'Infrastructure and deployment',
-      ],
-    },
-    type: 'education',
-  },
-  {
-    id: 'edu-3',
-    title: {
       pt: 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
       en: 'Associate Degree in Systems Analysis and Development',
     },
     company: 'UNIP',
     period: {
-      start: 'Fev 2023',
-      end: 'Dez 2024',
+      start: 'Jan 2023',
+      end: 'Jan 2025',
     },
     description: {
       pt: [
@@ -227,6 +201,29 @@ export const experiences: Experience[] = [
         'Software Engineering and OOP: Focus on Object-Oriented Programming, Systems Analysis and Software Design',
         'Databases: Data modeling and SQL',
         'Management and Projects: Software Project Management and Agile Methodologies',
+      ],
+    },
+    type: 'education',
+  },
+  {
+    id: 'edu-3',
+    title: {
+      pt: 'Cursos Complementares: Especialização Backend',
+      en: 'Complementary Courses: Backend Specialization',
+    },
+    company: 'Alura',
+    period: {
+      start: 'Nov 2025',
+      end: 'Jun 2026',
+    },
+    description: {
+      pt: [
+        'Carreira Backend Java com Spring Boot, JPA/Hibernate, Spring Security e APIs REST',
+        'Formação Engenharia de Software com foco em Arquitetura, Design de Sistemas e Testes',
+      ],
+      en: [
+        'Backend Java Career with Spring Boot, JPA/Hibernate, Spring Security and REST APIs',
+        'Software Engineering Training with focus on Architecture, Systems Design and Testing',
       ],
     },
     type: 'education',

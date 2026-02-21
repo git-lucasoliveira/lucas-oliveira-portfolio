@@ -24,8 +24,8 @@ export const pt = {
   about: {
     title: 'Sobre Mim',
     paragraphs: [
-      'Profissional de TI graduado em Análise e Desenvolvimento de Sistemas com interesse em Desenvolvimento de Software, Cloud Computing e Inovação.',
-      'Meu objetivo é atuar onde possa aplicar meus conhecimentos em Java, banco de dados e sistemas eficientes voltados à experiência do usuário. Estou aprofundando minha especialização técnica através da Formação de Desenvolvimento Backend Java da Alura e aplicando o conhecimento na prática em projetos pessoais hospedados no GitHub.',
+      'Desenvolvedor Backend com foco no ecossistema Java e Cloud Computing. Pós-graduando em Arquitetura de Software pela FIAP, possuo experiência prática na criação de APIs RESTful, automação de processos e conteinerização (Docker/AWS).',
+      'Orientado a metodologias ágeis (Scrum, Kanban) e boas práticas (SOLID, Clean Code). Tenho facilidade para integrações entre back-end e front-end e atualmente aprofundo meus estudos acadêmicos em Quarkus e mensageria (Kafka/RabbitMQ) para agregar valor aos projetos de inovação técnica do time.',
     ],
   },
   skills: {
