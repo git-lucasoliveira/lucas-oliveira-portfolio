@@ -1,10 +1,11 @@
 'use client'
 
 import React, { memo } from 'react'
+import { Award, ExternalLink } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
-import { experiences } from '@/data/portfolio'
+import { experiences, certifications } from '@/data/portfolio'
 
 function EducationSection() {
   const { t, language } = useLanguage()
@@ -50,6 +51,43 @@ function EducationSection() {
               </ul>
             </Card>
         ))}
+
+        {/* Certifications */}
+        <div id="certifications" className="scroll-mt-24">
+          <h3 className="text-2xl font-semibold text-text-primary-light dark:text-text-primary-dark mb-8 text-center">
+            {t.education.certificationsTitle}
+          </h3>
+          <div className="space-y-6">
+            {certifications.map((cert) => (
+              <Card key={cert.id}>
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center">
+                    <Award className="w-6 h-6 text-accent" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
+                      {cert.name}
+                    </h4>
+                    <p className="text-sm text-slate-400 dark:text-slate-400">
+                      {cert.issuer} · {cert.date}
+                    </p>
+                  </div>
+                  {cert.credentialUrl && (
+                    <a
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-shrink-0 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors"
+                      aria-label={`View credential: ${cert.name}`}
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
       </div>
     </Section>
   )

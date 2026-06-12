@@ -39,7 +39,7 @@ export default function Header() {
     { href: '#projects', label: t.nav.projects },
     { href: '#experience', label: t.nav.experience },
     { href: '#education', label: t.nav.education },
-    { href: 'https://www.linkedin.com/in/lucasoliveiraamorim/details/certifications/', label: t.nav.certifications, external: true },
+    { href: '#certifications', label: t.nav.certifications },
     { href: '#contact', label: t.nav.contact },
   ]
 
@@ -76,7 +76,6 @@ export default function Header() {
             <a
               key={item.href}
               href={item.href}
-              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               className="text-sm font-medium text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors"
             >
               {item.label}
@@ -134,7 +133,6 @@ export default function Header() {
                 <a
                   key={item.href}
                   href={item.href}
-                  {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   onClick={() => setIsMenuOpen(false)}
                   className="block text-base font-medium text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors"
                 >

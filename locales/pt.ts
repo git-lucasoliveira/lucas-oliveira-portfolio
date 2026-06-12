@@ -12,8 +12,9 @@ export const pt = {
   hero: {
     greeting: 'Olá, eu sou',
     name: 'Lucas de Oliveira Amorim',
-    role: '',
-    subtitle: '',
+    role: 'Desenvolvedor Backend | Java & Spring',
+    subtitle: 'Pós-graduando em Arquitetura de Software @ FIAP',
+    badge: '1x AWS Certified',
     description: 'Construindo soluções escaláveis e performantes',
     cta: {
       contact: 'Entre em Contato',
@@ -24,8 +25,8 @@ export const pt = {
   about: {
     title: 'Sobre Mim',
     paragraphs: [
-      'Desenvolvedor Backend com foco no ecossistema Java e Cloud Computing. Pós-graduando em Arquitetura de Software pela FIAP, possuo experiência prática na criação de APIs RESTful, automação de processos e conteinerização (Docker/AWS).',
-      'Orientado a metodologias ágeis (Scrum, Kanban) e boas práticas (SOLID, Clean Code). Tenho facilidade para integrações entre back-end e front-end e atualmente aprofundo meus estudos acadêmicos em Quarkus e mensageria (Kafka/RabbitMQ) para agregar valor aos projetos de inovação técnica do time.',
+      'Desenvolvedor Backend com foco no ecossistema Java e Cloud Computing. AWS Certified Cloud Practitioner e pós-graduando em Engenharia de Software pela FIAP, possuo experiência prática na criação de APIs RESTful, automação de processos e conteinerização (Docker/AWS).',
+      'Orientado a metodologias ágeis (Scrum, Kanban) e boas práticas (SOLID, Clean Code). Tenho facilidade para integrações entre back-end e front-end e atualmente aprofundo meus estudos acadêmicos em Microsserviços, Quarkus e mensageria (Kafka/RabbitMQ) para agregar valor aos projetos de inovação técnica do time.',
     ],
   },
   skills: {
@@ -47,10 +48,12 @@ export const pt = {
   experience: {
     title: 'Experiência Profissional',
     present: 'Presente',
+    promotion: 'Promoção',
   },
   education: {
     title: 'Formação',
     present: 'Presente',
+    certificationsTitle: 'Certificações',
   },
   contact: {
     title: 'Vamos Conversar?',

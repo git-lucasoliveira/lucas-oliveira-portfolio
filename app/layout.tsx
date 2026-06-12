@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Lucas de Oliveira Amorim | Java Backend Developer',
-  description: 'Java Backend Developer specialized in Spring Boot, REST APIs and scalable enterprise solutions. Currently working at Starcard developing corporate systems.',
+  title: 'Lucas de Oliveira Amorim | Backend Developer — Java & Spring | AWS Certified',
+  description: 'Backend Developer specialized in Java, Spring Boot and REST APIs. AWS Certified Cloud Practitioner, postgraduate student in Software Engineering at FIAP. Systems Analyst at Starcard, Barueri/SP.',
   keywords: [
     'Backend Developer',
     'Java Developer',
@@ -30,7 +30,11 @@ export const metadata: Metadata = {
     'Lucas Oliveira',
     'Java',
     'AWS',
+    'AWS Certified Cloud Practitioner',
     'Spring Security',
+    'Spring Cloud',
+    'Microservices',
+    'Kubernetes',
     'SQL Server',
     'Docker',
     'Starcard',
@@ -47,14 +51,14 @@ export const metadata: Metadata = {
     locale: 'pt_BR',
     alternateLocale: 'en_US',
     url: 'https://lucasoliveiraamorim.dev',
-    title: 'Lucas de Oliveira Amorim | Java Backend Developer',
-    description: 'Java Backend Developer specialized in Spring Boot and enterprise solutions',
+    title: 'Lucas de Oliveira Amorim | Backend Developer — Java & Spring | AWS Certified',
+    description: 'Backend Developer specialized in Java, Spring Boot and enterprise solutions. AWS Certified Cloud Practitioner.',
     siteName: 'Lucas Amorim Portfolio',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Lucas de Oliveira Amorim | Java Backend Developer',
-    description: 'Java Backend Developer specialized in Spring Boot and enterprise solutions',
+    title: 'Lucas de Oliveira Amorim | Backend Developer — Java & Spring | AWS Certified',
+    description: 'Backend Developer specialized in Java, Spring Boot and enterprise solutions. AWS Certified Cloud Practitioner.',
   },
   robots: {
     index: true,
