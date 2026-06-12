@@ -94,12 +94,12 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
   {
     id: 'project-0',
-    title: 'StarBank Suite',
+    title: 'Starbank Suite',
     description: {
-      pt: 'Suíte de três sistemas backend em Java desenvolvida para a operação financeira do Grupo Starcard (StarBank): processamento bancário (HatchBank), gestão de lastro e parametrização de tabelas. Automatizou e eliminou diversos processos manuais da empresa, reduzindo erros operacionais e o tempo de rotinas críticas do negócio.',
-      en: 'Suite of three Java backend systems built for Starcard Group\'s (StarBank) financial operation: banking processing (HatchBank), collateral management, and table parametrization. Automated and eliminated several manual company processes, reducing operational errors and the time spent on critical business routines.',
+      pt: 'Plataforma operacional integrada do Grupo Starbank que automatizou e eliminou diversos processos manuais do crédito consignado: importação e alteração em lote de tabelas comerciais, validação documental com IA (Gemini) e geração de DED com engine financeira própria em BigDecimal. Conta com snapshots imutáveis (SHA-256) para fins jurídicos, trilha de auditoria completa e deploy containerizado na AWS (EC2/ECR) via CI/CD com GitHub Actions.',
+      en: 'Integrated operations platform for Starbank Group that automated and eliminated several manual payroll-deducted credit processes: bulk import and update of commercial rate tables, AI-powered document validation (Gemini), and DED (debt evolution statement) generation with an in-house BigDecimal financial engine. Features immutable SHA-256 snapshots for legal purposes, a full audit trail, and containerized deployment on AWS (EC2/ECR) via CI/CD with GitHub Actions.',
     },
-    technologies: ['Java', 'Spring Boot', 'SQL', 'JPA/Hibernate', 'Docker'],
+    technologies: ['Java 21', 'Spring Boot 3.5', 'Gemini AI', 'Apache POI', 'PDFBox', 'Thymeleaf', 'Docker', 'AWS', 'GitHub Actions'],
     featured: true,
     highlight: true,
     isPrivate: true,
