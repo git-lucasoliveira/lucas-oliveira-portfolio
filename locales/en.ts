@@ -43,6 +43,7 @@ export const en: Translations = {
   },
   projects: {
     title: 'Projects',
+    highlight: 'Highlighted Project',
     viewCode: 'View Repository',
     viewDemo: 'View Demo',
     technologies: 'Technologies',

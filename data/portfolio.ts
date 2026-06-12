@@ -11,6 +11,7 @@ export interface Project {
   demoUrl?: string
   image?: string
   featured: boolean
+  highlight?: boolean
   isPrivate?: boolean
 }
 
@@ -91,6 +92,18 @@ export const skills: Skill[] = [
 ]
 
 export const projects: Project[] = [
+  {
+    id: 'project-0',
+    title: 'StarBank Suite',
+    description: {
+      pt: 'Suíte de três sistemas backend em Java desenvolvida para a operação financeira do Grupo Starcard (StarBank): processamento bancário (HatchBank), gestão de lastro e parametrização de tabelas. Automatizou e eliminou diversos processos manuais da empresa, reduzindo erros operacionais e o tempo de rotinas críticas do negócio.',
+      en: 'Suite of three Java backend systems built for Starcard Group\'s (StarBank) financial operation: banking processing (HatchBank), collateral management, and table parametrization. Automated and eliminated several manual company processes, reducing operational errors and the time spent on critical business routines.',
+    },
+    technologies: ['Java', 'Spring Boot', 'SQL', 'JPA/Hibernate', 'Docker'],
+    featured: true,
+    highlight: true,
+    isPrivate: true,
+  },
   {
     id: 'project-1',
     title: 'StarPeople',

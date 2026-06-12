@@ -41,6 +41,7 @@ export const pt = {
   },
   projects: {
     title: 'Projetos',
+    highlight: 'Projeto em Destaque',
     viewCode: 'Ver Repositório',
     viewDemo: 'Ver Demo',
     technologies: 'Tecnologias',
