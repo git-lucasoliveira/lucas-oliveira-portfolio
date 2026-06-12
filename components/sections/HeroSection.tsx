@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowDown, Award } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { socialLinks } from '@/data/portfolio'
 
@@ -24,6 +24,14 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
+          {/* AWS Certification Badge */}
+          <div className="flex justify-center mb-6">
+            <span className="inline-flex items-center gap-2 border border-accent/30 bg-accent/10 text-accent rounded-full px-3 py-1 text-xs font-medium">
+              <Award className="w-3.5 h-3.5" />
+              {t.hero.badge}
+            </span>
+          </div>
+
           {/* Name */}
           <h1 className="text-7xl md:text-8xl font-bold mb-6 tracking-tight">
             <span className="text-text-primary-light dark:text-text-primary-dark">
@@ -32,9 +40,14 @@ export default function HeroSection() {
           </h1>
 
           {/* Role */}
-          <h2 className="text-2xl md:text-3xl font-medium mb-4 bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">
-            Backend Java Developer
+          <h2 className="text-2xl md:text-3xl font-medium mb-3 bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">
+            {t.hero.role}
           </h2>
+
+          {/* Subtitle */}
+          <p className="text-sm md:text-base font-medium text-text-secondary-light dark:text-text-secondary-dark mb-4">
+            {t.hero.subtitle}
+          </p>
 
           {/* Description */}
           <p className="text-base md:text-lg text-slate-400 dark:text-slate-400 max-w-2xl mx-auto mb-12" style={{ lineHeight: '1.7' }}>

@@ -1,6 +1,6 @@
 # 🚀 Portfolio Profissional - Lucas de Oliveira Amorim
 
-**Backend Java Developer** | Spring Boot | SQL Server
+**Desenvolvedor Backend** | Java | Spring | 1x AWS Certified | Pós-graduando em Arquitetura de Software @ FIAP
 
 [![Ver Online](https://img.shields.io/badge/🌐_Acesse_o_Site-lucas--oliveira--portfolio.vercel.app-blue?style=for-the-badge)](https://lucas-oliveira-portfolio.vercel.app)
 
@@ -25,7 +25,7 @@ Embora meu forte seja o Backend, prezo pela qualidade visual e performance:
 
 O site serve como vitrine para meus principais trabalhos de engenharia:
 
-1.  **StarPeople (Enterprise):** Sistema de automação de onboarding implantado e em produção no Grupo Starbank.
+1.  **StarPeople (Enterprise):** Sistema de automação de onboarding implantado e em produção no Grupo Starcard.
 2.  **RH System (Open Source):** API Restful focada em arquitetura limpa e segurança com Spring Security.
 
 ## 🚀 Como Rodar Localmente

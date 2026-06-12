@@ -11,6 +11,7 @@ export interface Project {
   demoUrl?: string
   image?: string
   featured: boolean
+  highlight?: boolean
   isPrivate?: boolean
 }
 
@@ -38,6 +39,14 @@ export interface Skill {
   level?: number // 1-5
 }
 
+export interface Certification {
+  id: string
+  name: string
+  issuer: string
+  date: string
+  credentialUrl?: string
+}
+
 // Portfolio Data
 export const skills: Skill[] = [
   // Backend
@@ -47,6 +56,8 @@ export const skills: Skill[] = [
   { name: 'Spring Security', category: 'backend', level: 4 },
   { name: 'JWT', category: 'backend', level: 4 },
   { name: 'Quarkus', category: 'backend', level: 3 },
+  { name: 'Spring Cloud', category: 'backend', level: 3 },
+  { name: 'OAuth2', category: 'backend', level: 4 },
   { name: 'Mensageria (Kafka/RabbitMQ)', category: 'backend', level: 3 },
 
   // Database
@@ -55,11 +66,13 @@ export const skills: Skill[] = [
   { name: 'PostgreSQL', category: 'database', level: 4 },
   { name: 'JPA/Hibernate', category: 'database', level: 4 },
   { name: 'NoSQL (Firestore)', category: 'database', level: 4 },
+  { name: 'MongoDB', category: 'database', level: 3 },
   { name: 'PL/SQL', category: 'database', level: 3 },
 
   // Cloud & DevOps
   { name: 'AWS', category: 'cloud', level: 4 },
   { name: 'Docker', category: 'cloud', level: 4 },
+  { name: 'Kubernetes', category: 'cloud', level: 3 },
   { name: 'Linux', category: 'cloud', level: 3 },
   { name: 'CI/CD', category: 'cloud', level: 3 },
 
@@ -71,6 +84,7 @@ export const skills: Skill[] = [
 
   // Other
   { name: 'SOLID / Clean Arch', category: 'other', level: 4 },
+  { name: 'DDD / CQRS', category: 'other', level: 3 },
   { name: 'Metodologias Ágeis', category: 'other', level: 4 },
   { name: 'Python', category: 'other', level: 3 },
   { name: 'JavaScript', category: 'other', level: 3 },
@@ -78,6 +92,18 @@ export const skills: Skill[] = [
 ]
 
 export const projects: Project[] = [
+  {
+    id: 'project-0',
+    title: 'Starbank Suite',
+    description: {
+      pt: 'Plataforma operacional integrada do Grupo Starbank que automatizou e eliminou diversos processos manuais do crédito consignado: importação e alteração em lote de tabelas comerciais, validação documental com IA (Gemini) e geração de DED com engine financeira própria em BigDecimal. Conta com snapshots imutáveis (SHA-256) para fins jurídicos, trilha de auditoria completa e deploy containerizado na AWS (EC2/ECR) via CI/CD com GitHub Actions.',
+      en: 'Integrated operations platform for Starbank Group that automated and eliminated several manual payroll-deducted credit processes: bulk import and update of commercial rate tables, AI-powered document validation (Gemini), and DED (debt evolution statement) generation with an in-house BigDecimal financial engine. Features immutable SHA-256 snapshots for legal purposes, a full audit trail, and containerized deployment on AWS (EC2/ECR) via CI/CD with GitHub Actions.',
+    },
+    technologies: ['Java 21', 'Spring Boot 3.5', 'Gemini AI', 'Apache POI', 'PDFBox', 'Thymeleaf', 'Docker', 'AWS', 'GitHub Actions'],
+    featured: true,
+    highlight: true,
+    isPrivate: true,
+  },
   {
     id: 'project-1',
     title: 'StarPeople',
@@ -104,6 +130,33 @@ export const projects: Project[] = [
 
 export const experiences: Experience[] = [
   {
+    id: 'exp-0',
+    title: {
+      pt: 'Analista de Sistemas Jr',
+      en: 'Junior Systems Analyst',
+    },
+    company: 'Starcard',
+    period: {
+      start: 'Abr 2026',
+      end: 'present',
+    },
+    description: {
+      pt: [
+        'Condução da evolução do sistema StarPeople, projetando novos módulos e integrações para ampliar a cobertura do ciclo de vida de mais de 150 colaboradores.',
+        'Administração e otimização da infraestrutura em nuvem AWS (EC2, ECR, RDS, S3) com containers Docker, garantindo disponibilidade e segurança dos ambientes.',
+        'Expansão da esteira de automações com Python e Power Automate, eliminando processos manuais entre os times de TI e RH.',
+        'Levantamento e análise de requisitos junto às áreas de negócio, traduzindo demandas em soluções técnicas alinhadas a boas práticas de arquitetura.',
+      ],
+      en: [
+        'Driving the evolution of the StarPeople system, designing new modules and integrations to expand lifecycle coverage for 150+ employees.',
+        'Administration and optimization of AWS cloud infrastructure (EC2, ECR, RDS, S3) with Docker containers, ensuring environment availability and security.',
+        'Expansion of the automation pipeline with Python and Power Automate, eliminating manual processes between IT and HR teams.',
+        'Requirements gathering and analysis with business areas, translating demands into technical solutions aligned with architecture best practices.',
+      ],
+    },
+    type: 'work',
+  },
+  {
     id: 'exp-1',
     title: {
       pt: 'Assistente de TI (Desenvolvimento Backend)',
@@ -112,7 +165,7 @@ export const experiences: Experience[] = [
     company: 'Starcard',
     period: {
       start: 'Jun 2025',
-      end: 'present',
+      end: 'Abr 2026',
     },
     description: {
       pt: [
@@ -158,24 +211,26 @@ export const experiences: Experience[] = [
   {
     id: 'edu-1',
     title: {
-      pt: 'Pós-graduação em Arquitetura e Desenvolvimento Java',
-      en: 'Postgraduate in Architecture and Java Development',
+      pt: 'Pós-graduação Lato Sensu em Engenharia de Software',
+      en: 'Lato Sensu Postgraduate in Software Engineering',
     },
     company: 'FIAP',
     period: {
-      start: 'Mar 2026',
-      end: 'Mar 2027',
+      start: 'Fev 2026',
+      end: 'Jan 2027',
     },
     description: {
       pt: [
-        'Arquitetura de Microsserviços e Cloud Computing',
-        'Quarkus, Mensageria (Kafka, RabbitMQ)',
-        'Design Patterns e Testes Avançados',
+        'Arquitetura: Microsserviços, Clean Architecture, SOLID, Design Patterns, DDD, CQRS e Event Storming',
+        'Stack & Qualidade: Java, Spring Boot, Spring Cloud, Quarkus, TDD e testes unitários/integração',
+        'Dados & Mensageria: SQL, NoSQL (MongoDB/Cassandra), Kafka e RabbitMQ',
+        'DevOps & Segurança: Docker, Kubernetes, CI/CD, Serverless, AWS/Azure, Spring Security, OAuth2 e JWT',
       ],
       en: [
-        'Microservices Architecture and Cloud Computing',
-        'Quarkus, Messaging (Kafka, RabbitMQ)',
-        'Design Patterns and Advanced Testing',
+        'Architecture: Microservices, Clean Architecture, SOLID, Design Patterns, DDD, CQRS and Event Storming',
+        'Stack & Quality: Java, Spring Boot, Spring Cloud, Quarkus, TDD and unit/integration testing',
+        'Data & Messaging: SQL, NoSQL (MongoDB/Cassandra), Kafka and RabbitMQ',
+        'DevOps & Security: Docker, Kubernetes, CI/CD, Serverless, AWS/Azure, Spring Security, OAuth2 and JWT',
       ],
     },
     type: 'education',
@@ -230,10 +285,20 @@ export const experiences: Experience[] = [
   },
 ]
 
+export const certifications: Certification[] = [
+  {
+    id: 'cert-aws-ccp',
+    name: 'AWS Certified Cloud Practitioner',
+    issuer: 'Amazon Web Services',
+    date: '2026',
+    credentialUrl: 'https://www.credly.com/badges/16ad678b-05b7-46e8-8fc8-a5fbca319edf',
+  },
+]
+
 export const socialLinks = {
   github: 'https://github.com/git-lucasoliveira',
   linkedin: 'https://linkedin.com/in/lucasoliveiraamorim',
   email: 'lucas.oliveiraa120505@gmail.com',
   phone: '+55 11 95314-3462',
-  location: 'São Paulo, Brasil',
+  location: 'Barueri, São Paulo, Brasil',
 }

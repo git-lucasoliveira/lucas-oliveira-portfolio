@@ -1,7 +1,7 @@
 'use client'
 
 import React, { memo, useState } from 'react'
-import { Github, ExternalLink, Lock } from 'lucide-react'
+import { Github, ExternalLink, Lock, Star } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
@@ -15,9 +15,22 @@ function ProjectsSection() {
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={project.id} className="h-full flex flex-col" hover={false}>
-                {/* Featured Badge */}
-                {project.featured && (
+            <Card
+              key={project.id}
+              className={`h-full flex flex-col ${
+                project.highlight
+                  ? 'md:col-span-2 !border-accent/40 shadow-[0_0_24px_rgba(16,185,129,0.08)]'
+                  : ''
+              }`}
+              hover={false}
+            >
+                {/* Highlight / Featured Badge */}
+                {project.highlight ? (
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-accent border border-accent/30 bg-accent/10 rounded-full mb-4 w-fit">
+                    <Star className="w-3.5 h-3.5" />
+                    {t.projects.highlight}
+                  </span>
+                ) : project.featured && (
                   <span className="inline-block px-3 py-1 text-xs font-medium text-primary-light dark:text-primary-dark border border-primary-light/30 dark:border-primary-dark/30 rounded-full mb-4 w-fit">
                     Featured
                   </span>

@@ -131,7 +131,7 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.75rem;
   padding: 2rem;
-  transition: border-color 0.2s ease, background-color 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   contain: layout style paint;
@@ -140,6 +140,7 @@
 .card-glass-fake:hover {
   border-color: rgba(59, 130, 246, 0.35);
   background: rgba(248, 250, 252, 0.98);
+  transform: translate3d(0, -2px, 0);
 }
 
 /* Dark mode cards */
