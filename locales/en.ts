@@ -27,7 +27,7 @@ export const en: Translations = {
   about: {
     title: 'About Me',
     paragraphs: [
-      'Backend Developer focused on the Java ecosystem and Cloud Computing. AWS Certified Cloud Practitioner and postgraduate student in Software Engineering at FIAP, with practical experience in creating RESTful APIs, process automation, and containerization (Docker/AWS).',
+      'Backend Developer focused on the Java ecosystem and Cloud Computing. AWS Certified Cloud Practitioner and postgraduate student in Software Architecture at FIAP, with practical experience in creating RESTful APIs, process automation, and containerization (Docker/AWS).',
       'Driven by agile methodologies (Scrum, Kanban) and best practices (SOLID, Clean Code). I have a strong aptitude for backend to frontend integrations and am currently deepening my academic studies in Microservices, Quarkus and messaging (Kafka/RabbitMQ) to add value to the team\'s technical innovation projects.',
     ],
   },

@@ -94,25 +94,14 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
   {
     id: 'project-0',
-    title: 'Starbank Suite',
+    title: 'StarSuite',
     description: {
-      pt: 'Plataforma operacional integrada do Grupo Starbank que automatizou e eliminou diversos processos manuais do crédito consignado: importação e alteração em lote de tabelas comerciais, validação documental com IA (Gemini) e geração de DED com engine financeira própria em BigDecimal. Conta com snapshots imutáveis (SHA-256) para fins jurídicos, trilha de auditoria completa e deploy containerizado na AWS (EC2/ECR) via CI/CD com GitHub Actions.',
-      en: 'Integrated operations platform for Starbank Group that automated and eliminated several manual payroll-deducted credit processes: bulk import and update of commercial rate tables, AI-powered document validation (Gemini), and DED (debt evolution statement) generation with an in-house BigDecimal financial engine. Features immutable SHA-256 snapshots for legal purposes, a full audit trail, and containerized deployment on AWS (EC2/ECR) via CI/CD with GitHub Actions.',
+      pt: 'Plataforma interna multi-tenant de operações de crédito consignado, com 11 módulos que substituíram processos manuais por software. Inclui validação documental assistida por IA (Google Gemini), engine financeira própria em BigDecimal com Newton-Raphson e versionada para reprodutibilidade, cálculo de margem com extrato auditável, Clean Architecture por módulo, PostgreSQL com migrations versionadas em Flyway, RBAC, trilha de auditoria completa e integrações resilientes. Deploy containerizado na AWS (EC2/ECR) via CI/CD com GitHub Actions.',
+      en: 'Multi-tenant internal platform for payroll-deducted credit operations, with 11 modules that replaced manual processes with software. Includes AI-assisted document validation (Google Gemini), an in-house financial engine built on BigDecimal with a Newton-Raphson solver and versioned for reproducibility, margin calculation with an auditable breakdown, Clean Architecture per module, PostgreSQL with versioned Flyway migrations, RBAC, a full audit trail and resilient integrations. Containerized deployment on AWS (EC2/ECR) via CI/CD with GitHub Actions.',
     },
-    technologies: ['Java 21', 'Spring Boot 3.5', 'Gemini AI', 'Apache POI', 'PDFBox', 'Thymeleaf', 'Docker', 'AWS', 'GitHub Actions'],
+    technologies: ['Java 21', 'Spring Boot 3.5', 'PostgreSQL', 'Flyway', 'Google Gemini', 'Resilience4j', 'Apache POI', 'PDFBox', 'Docker', 'AWS', 'GitHub Actions'],
     featured: true,
     highlight: true,
-    isPrivate: true,
-  },
-  {
-    id: 'project-1',
-    title: 'StarPeople',
-    description: {
-      pt: 'Sistema implantado em produção no Grupo Starcard que centraliza o ciclo de vida de mais de 150 colaboradores. Otimizou em 85% o tempo de processos manuais com geração de relatórios PDF. Possui endpoints RESTful, proteção de dados com JWT Stateless e 80% de cobertura de testes com JUnit/Mockito.',
-      en: 'System deployed to production at Starcard Group that centralizes the lifecycle of more than 150 employees. Optimized manual processes time by 85% with PDF report generation. Features RESTful endpoints, data protection with Stateless JWT, and 80% test coverage with JUnit/Mockito.',
-    },
-    technologies: ['Java', 'Spring Boot', 'SQL Server', 'Spring Security', 'JWT', 'Docker', 'JUnit', 'Mockito'],
-    featured: true,
     isPrivate: true,
   },
   {
@@ -133,7 +122,7 @@ export const experiences: Experience[] = [
     id: 'exp-0',
     title: {
       pt: 'Analista de Sistemas Jr',
-      en: 'Junior Systems Analyst',
+      en: 'Jr Systems Analyst',
     },
     company: 'Starcard',
     period: {
@@ -142,16 +131,18 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Condução da evolução do sistema StarPeople, projetando novos módulos e integrações para ampliar a cobertura do ciclo de vida de mais de 150 colaboradores.',
-        'Administração e otimização da infraestrutura em nuvem AWS (EC2, ECR, RDS, S3) com containers Docker, garantindo disponibilidade e segurança dos ambientes.',
-        'Expansão da esteira de automações com Python e Power Automate, eliminando processos manuais entre os times de TI e RH.',
-        'Levantamento e análise de requisitos junto às áreas de negócio, traduzindo demandas em soluções técnicas alinhadas a boas práticas de arquitetura.',
+        'Criação do StarSuite, plataforma interna multi-tenant de operações de crédito consignado, hoje com 11 módulos — sigo como principal desenvolvedor à medida que o projeto cresceu e passou a envolver outros desenvolvedores.',
+        'Automação da validação documental de propostas com IA (Google Gemini): 2.800+ propostas processadas e cerca de 700 horas de operação devolvidas em 4 meses — o que levava ~15 minutos por proposta passou a levar segundos.',
+        'Engine financeira própria para o Demonstrativo de Evolução da Dívida, em BigDecimal com Newton-Raphson e versionada para reprodutibilidade: o ciclo de saldo devedor, geração e anexação caiu de ~20 minutos manuais para segundos, e o reprocessamento agendado re-executa 3.000+ demonstrativos em 3 horas.',
+        'Substituição do cálculo de margem em planilha manual (~10 minutos por cliente e sujeito a erro) por cálculo automatizado em menos de 1 minuto, com extrato auditável das regras aplicadas por convênio.',
+        'Clean Architecture por módulo, PostgreSQL com migrations versionadas em Flyway, controle de acesso por perfil (RBAC), trilha de auditoria e integrações resilientes (circuit breaker, bulkhead, outbox com reconciliação).',
       ],
       en: [
-        'Driving the evolution of the StarPeople system, designing new modules and integrations to expand lifecycle coverage for 150+ employees.',
-        'Administration and optimization of AWS cloud infrastructure (EC2, ECR, RDS, S3) with Docker containers, ensuring environment availability and security.',
-        'Expansion of the automation pipeline with Python and Power Automate, eliminating manual processes between IT and HR teams.',
-        'Requirements gathering and analysis with business areas, translating demands into technical solutions aligned with architecture best practices.',
+        'Created StarSuite, a multi-tenant internal platform for payroll-deducted credit operations, today with 11 modules — I remain its main developer as the project grew to involve other engineers.',
+        'Automated document validation for credit applications using AI (Google Gemini): 2,800+ applications processed and around 700 hours of manual work removed in 4 months — what took ~15 minutes per application now takes seconds.',
+        'Built an in-house financial engine for debt-evolution statements on BigDecimal with a Newton-Raphson solver, versioned for reproducibility: the balance to generation to attachment cycle went from ~20 manual minutes to seconds, and scheduled reprocessing re-runs 3,000+ statements in 3 hours.',
+        'Replaced manual spreadsheet-based margin calculation (~10 minutes per client and error-prone) with an automated calculation under 1 minute, including an auditable breakdown of the rules applied per agreement.',
+        'Clean Architecture per module, PostgreSQL with versioned Flyway migrations, role-based access control (RBAC), audit trail and resilient integrations (circuit breaker, bulkhead, outbox with reconciliation).',
       ],
     },
     type: 'work',
@@ -165,20 +156,20 @@ export const experiences: Experience[] = [
     company: 'Starcard',
     period: {
       start: 'Jun 2025',
-      end: 'Abr 2026',
+      end: 'Mar 2026',
     },
     description: {
       pt: [
-        'Orquestração do desenvolvimento backend do sistema StarPeople, centralizando o ciclo de vida de mais de 50 colaboradores e garantindo a integridade dos dados.',
-        'Automação de tarefas repetitivas com scripts Python e Power Automate, economizando mais de 15 horas mensais operacionais da equipe.',
-        'Otimização da infraestrutura em nuvem, reduzindo em 30% a latência do banco de dados Firestore (NoSQL).',
-        'Deploy do sistema GLPI 100% containerizado com Docker em ambiente Linux na infraestrutura AWS (EC2, ECR, RDS, S3).',
+        'Desenvolvimento por conta própria da primeira versão do StarPeople (Java e Spring Boot), sistema interno para automatizar o onboarding — primeiro projeto de software na empresa e o que motivou a transição de suporte para desenvolvimento.',
+        'Deploy do sistema oficial de chamados corporativos (GLPI) em produção, 100% containerizado com Docker em ambiente Linux na AWS (EC2, ECR, RDS).',
+        'Automação de fluxos de dados entre RH e TI com scripts Python e Power Automate, removendo repasses manuais recorrentes entre as áreas.',
+        'Apoio à modelagem e manutenção dos bancos de dados corporativos (SQL Server).',
       ],
       en: [
-        'Orchestration of the backend development for the StarPeople system, centralizing the lifecycle of 50+ employees and ensuring data integrity.',
-        'Automation of repetitive tasks using Python scripts and Power Automate, saving over 15 hours per month.',
-        'Optimization of cloud infrastructure, reducing Firestore (NoSQL) database latency by 30%.',
-        'Deployment of the GLPI system 100% containerized with Docker in a Linux environment on AWS infrastructure (EC2, ECR, RDS, S3).',
+        'Independently built the first version of StarPeople (Java and Spring Boot), an internal system to automate onboarding — my first software project at the company and what drove my transition from support to development.',
+        'Deployed the official corporate ticketing system (GLPI) to production, fully containerized with Docker on Linux over AWS (EC2, ECR, RDS).',
+        'Automated data flows between HR and IT with Python scripts and Power Automate, removing recurring manual handoffs between the teams.',
+        'Supported modeling and maintenance of corporate databases (SQL Server).',
       ],
     },
     type: 'work',
@@ -196,14 +187,14 @@ export const experiences: Experience[] = [
     },
     description: {
       pt: [
-        'Resolução de rotinas de suporte N1/N2, diagnosticando e corrigindo falhas para mais de 30 usuários internos e garantindo 95% de cumprimento do SLA.',
-        'Configuração e manutenção da infraestrutura de rede e ambientes de trabalho.',
-        'Garantia de 100% de estabilidade tecnológica contínua para um parque de 40 equipamentos.',
+        'Suporte técnico N1/N2 a usuários internos, com diagnóstico e correção de falhas em sistemas operacionais e aplicações.',
+        'Configuração e manutenção da infraestrutura de rede e dos ambientes de trabalho.',
+        'Análise de informações e extração de relatórios em apoio aos sistemas de gestão.',
       ],
       en: [
-        'Resolution of N1/N2 support routines, diagnosing and fixing flaws for over 30 internal users and guaranteeing 95% SLA compliance.',
-        'Configuration and maintenance of network infrastructure and work environments.',
-        'Ensuring 100% continuous technological stability for a fleet of 40 equipments.',
+        'N1/N2 technical support for internal users, diagnosing and fixing issues in operating systems and applications.',
+        'Configuration and maintenance of network infrastructure and workstations.',
+        'Data analysis and report extraction in support of management systems.',
       ],
     },
     type: 'work',
@@ -211,13 +202,13 @@ export const experiences: Experience[] = [
   {
     id: 'edu-1',
     title: {
-      pt: 'Pós-graduação Lato Sensu em Engenharia de Software',
-      en: 'Lato Sensu Postgraduate in Software Engineering',
+      pt: 'Pós-graduação Lato Sensu em Arquitetura de Software',
+      en: 'Lato Sensu Postgraduate in Software Architecture',
     },
     company: 'FIAP',
     period: {
       start: 'Fev 2026',
-      end: 'Jan 2027',
+      end: 'Dez 2026',
     },
     description: {
       pt: [
@@ -299,6 +290,5 @@ export const socialLinks = {
   github: 'https://github.com/git-lucasoliveira',
   linkedin: 'https://linkedin.com/in/lucasoliveiraamorim',
   email: 'lucas.oliveiraa120505@gmail.com',
-  phone: '+55 11 95314-3462',
   location: 'Barueri, São Paulo, Brasil',
 }

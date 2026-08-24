@@ -2,7 +2,7 @@
 
 import React, { useState, memo } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mail, Phone, MapPin, Copy, Check, Github, Linkedin } from 'lucide-react'
+import { Send, Mail, MapPin, Copy, Check, Github, Linkedin } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
@@ -199,14 +199,6 @@ function ContactSection() {
                   </button>
                 </div>
 
-                {/* Phone */}
-                <a
-                  href={`tel:${socialLinks.phone}`}
-                  className="flex items-center gap-3 text-text-secondary-light/70 dark:text-text-secondary-dark/70 hover:text-text-primary-light dark:hover:text-text-primary-dark transition-colors font-light text-sm"
-                >
-                  <Phone className="w-4 h-4" />
-                  <span>{socialLinks.phone}</span>
-                </a>
 
                 {/* Location */}
                 <div className="flex items-center gap-3 text-text-secondary-light/70 dark:text-text-secondary-dark/70 font-light text-sm">
