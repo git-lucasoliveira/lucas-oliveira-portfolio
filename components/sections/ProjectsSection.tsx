@@ -32,7 +32,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
       delay={delay}
     >
       {marker === 'highlight' ? (
-        <span className="credential-pill px-3 py-1 mb-4 w-fit">
+        <span className="highlight-pill px-3 py-1 mb-4 w-fit">
           <Star className="w-3.5 h-3.5" aria-hidden="true" />
           {t.projects.highlight}
         </span>

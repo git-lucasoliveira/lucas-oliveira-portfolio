@@ -31,25 +31,28 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* AWS Certification Badge.
-              The image is decorative here - the pill text already names the
-              certification, so announcing it twice would be noise. */}
-          <div className="flex justify-center mb-6">
-            <span className="credential-pill pl-2 pr-3 py-1">
-              {awsCertification?.badgeImage && (
+          {/* AWS Certification Badge. The badge stands alone here, so the image
+              carries the meaning and needs a real alt - there is no longer any
+              adjacent text naming the certification. */}
+          {awsCertification?.badgeImage && (
+            <div className="flex justify-center mb-6">
+              <a
+                href={awsCertification.credentialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-opacity duration-200 hover:opacity-80"
+              >
                 <Image
                   src={awsCertification.badgeImage}
-                  alt=""
-                  aria-hidden="true"
+                  alt={awsCertification.name}
                   width={certificationBadgeSize.width}
                   height={certificationBadgeSize.height}
                   priority
-                  className="h-5 w-auto"
+                  className="h-24 sm:h-28 w-auto"
                 />
-              )}
-              {t.hero.badge}
-            </span>
-          </div>
+              </a>
+            </div>
+          )}
 
           {/* Name */}
           <h1 className="text-7xl md:text-8xl font-bold mb-6 tracking-tight">

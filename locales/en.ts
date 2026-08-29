@@ -16,7 +16,6 @@ export const en: Translations = {
     name: 'Lucas de Oliveira Amorim',
     role: 'Backend Developer | Java & Spring',
     subtitle: 'Postgraduate student in Java Architecture and Development @ FIAP',
-    badge: '1x AWS Certified',
     description: 'Building scalable and performant solutions',
     cta: {
       contact: 'Get in Touch',
@@ -48,7 +47,6 @@ export const en: Translations = {
     viewDemo: 'View Demo',
     technologies: 'Technologies',
     categories: {
-      production: 'Production',
       academic: 'Academic · FIAP',
       personal: 'Personal project',
     },

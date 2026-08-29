@@ -16,7 +16,6 @@ export const pt = {
     name: 'Lucas de Oliveira Amorim',
     role: 'Desenvolvedor Backend | Java & Spring',
     subtitle: 'Pós-graduando em Arquitetura e Desenvolvimento Java @ FIAP',
-    badge: '1x AWS Certified',
     description: 'Construindo soluções escaláveis e performantes',
     cta: {
       contact: 'Entre em Contato',
@@ -48,7 +47,6 @@ export const pt = {
     viewDemo: 'Ver Demo',
     technologies: 'Tecnologias',
     categories: {
-      production: 'Produção',
       academic: 'Acadêmico · FIAP',
       personal: 'Projeto pessoal',
     } satisfies Record<ProjectCategory, string>,

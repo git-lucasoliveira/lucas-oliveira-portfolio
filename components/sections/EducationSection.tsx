@@ -63,12 +63,16 @@ function EducationSection() {
               <Card key={cert.id}>
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center">
+                    {/* The ExternalLink anchor further down points at the same URL and
+                        is the one keyboard and screen-reader users get; the anchor
+                        below only makes the badge clickable for pointer users. */}
                     {cert.badgeImage ? (
                       <a
                         href={cert.credentialUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Verify credential: ${cert.name}`}
+                        tabIndex={-1}
+                        aria-hidden="true"
                       >
                         <Image
                           src={cert.badgeImage}

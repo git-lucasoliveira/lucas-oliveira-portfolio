@@ -1,7 +1,7 @@
 // Portfolio data structure
 
 /** Where a project came from. Drives the category tag rendered on its card. */
-export const projectCategories = ['production', 'academic', 'personal'] as const
+export const projectCategories = ['academic', 'personal'] as const
 
 export type ProjectCategory = (typeof projectCategories)[number]
 
@@ -82,12 +82,17 @@ export interface Certification {
 }
 
 /** The CV offered for download in the hero. */
-const resumePath = '/cv/CV_Lucas_Oliveira_Backend_Java.pdf'
+const resumeFileName = 'CV_Lucas_Oliveira_Backend_Java.pdf'
 
-export const resume = {
-  path: resumePath,
+export interface Resume {
+  path: string
   /** What the file is called once it lands in the visitor's downloads folder. */
-  fileName: resumePath.split('/').pop() as string,
+  fileName: string
+}
+
+export const resume: Resume = {
+  path: `/cv/${resumeFileName}`,
+  fileName: resumeFileName,
 }
 
 /** Intrinsic pixel size of the certification badge artwork in `public/`. */
@@ -151,7 +156,6 @@ export const projects: Project[] = [
     technologies: ['Java 21', 'Spring Boot 3.5', 'PostgreSQL', 'Flyway', 'Google Gemini', 'Resilience4j', 'Apache POI', 'PDFBox', 'Docker', 'AWS', 'GitHub Actions'],
     highlight: true,
     isPrivate: true,
-    category: 'production',
   },
   {
     id: 'project-1',

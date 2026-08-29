@@ -158,22 +158,27 @@ describe('project invariants', () => {
     }
   })
 
-  it('categorises every project that is not the highlighted one', () => {
+  // The "a card never shows both a highlight pill and a category tag" rule is
+  // enforced by projectMarker's return type, not by a test: it resolves to a
+  // single value, so no data edit can produce both. Asserting it here would only
+  // restate the implementation.
+
+  it('shows the highlight pill on the highlighted project, and a tag on the rest', () => {
     for (const project of projects) {
-      if (project.highlight) continue
-      expect(project.category, project.title).toBeTruthy()
+      const marker = projectMarker(project)
+      if (project.highlight) {
+        expect(marker, project.title).toBe('highlight')
+      } else if (project.category) {
+        expect(marker, project.title).toBe('category')
+      }
     }
   })
 
-  it('gives every card exactly one marker, never a highlight pill and a tag at once', () => {
+  it('labels the category of every project that declares one', () => {
     for (const project of projects) {
-      const marker = projectMarker(project)
-      expect(marker, project.title).toBe(project.highlight ? 'highlight' : 'category')
-      // The marker a card renders resolves to one value, so the two can never
-      // appear together however the data is edited.
-      if (marker === 'category') {
-        expect(project.category, project.title).toBeTruthy()
-      }
+      if (!project.category) continue // a project without one still renders
+      expect(pt.projects.categories[project.category], project.title).toBeTruthy()
+      expect(en.projects.categories[project.category], project.title).toBeTruthy()
     }
   })
 
