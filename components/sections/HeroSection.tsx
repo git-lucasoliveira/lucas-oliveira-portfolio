@@ -1,13 +1,16 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowDown, Award } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowDown, Download } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { socialLinks } from '@/data/portfolio'
+import { certifications, resume, socialLinks } from '@/data/portfolio'
 
 export default function HeroSection() {
   const { t } = useLanguage()
+
+  const awsBadge = certifications.find((cert) => cert.badgeImage)?.badgeImage
 
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('projects')
@@ -24,10 +27,22 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* AWS Certification Badge */}
+          {/* AWS Certification Badge.
+              The image is decorative here - the pill text already names the
+              certification, so announcing it twice would be noise. */}
           <div className="flex justify-center mb-6">
-            <span className="inline-flex items-center gap-2 border border-accent/30 bg-accent/10 text-accent rounded-full px-3 py-1 text-xs font-medium">
-              <Award className="w-3.5 h-3.5" />
+            <span className="inline-flex items-center gap-2 border border-emerald-700/30 dark:border-accent/30 bg-accent/10 text-emerald-700 dark:text-accent rounded-full pl-2 pr-3 py-1 text-xs font-medium">
+              {awsBadge && (
+                <Image
+                  src={awsBadge}
+                  alt=""
+                  aria-hidden="true"
+                  width={510}
+                  height={588}
+                  priority
+                  className="h-5 w-auto"
+                />
+              )}
               {t.hero.badge}
             </span>
           </div>
@@ -54,17 +69,30 @@ export default function HeroSection() {
             {t.hero.description}
           </p>
 
-          {/* Single CTA */}
-          <motion.button
-            onClick={scrollToProjects}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 px-8 py-3 border border-text-secondary-light/20 dark:border-text-secondary-dark/20 rounded-lg text-sm font-medium text-text-primary-light dark:text-text-primary-dark hover:border-primary-light dark:hover:border-primary-dark hover:bg-primary-light/5 dark:hover:bg-primary-dark/5 transition-all duration-300"
-            aria-label="Scroll to projects section"
-          >
-            {t.hero.cta.viewWork}
-            <ArrowDown className="w-4 h-4" />
-          </motion.button>
+          {/* CTAs - the CV download stays secondary so the page keeps one focal point */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+            <motion.button
+              onClick={scrollToProjects}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 border border-text-secondary-light/20 dark:border-text-secondary-dark/20 rounded-lg text-sm font-medium text-text-primary-light dark:text-text-primary-dark hover:border-primary-light dark:hover:border-primary-dark hover:bg-primary-light/5 dark:hover:bg-primary-dark/5 transition-all duration-300"
+              aria-label="Scroll to projects section"
+            >
+              {t.hero.cta.viewWork}
+              <ArrowDown className="w-4 h-4" />
+            </motion.button>
+
+            <motion.a
+              href={resume.path}
+              download={resume.fileName}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark hover:text-primary-light dark:hover:text-primary-dark hover:bg-primary-light/5 dark:hover:bg-primary-dark/5 transition-all duration-300"
+            >
+              <Download className="w-4 h-4" />
+              {t.hero.cta.downloadCV}
+            </motion.a>
+          </div>
 
           {/* Social Links */}
           <div className="flex justify-center gap-6 mt-16">

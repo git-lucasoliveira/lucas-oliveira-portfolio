@@ -13,7 +13,7 @@ export const pt = {
     greeting: 'Olá, eu sou',
     name: 'Lucas de Oliveira Amorim',
     role: 'Desenvolvedor Backend | Java & Spring',
-    subtitle: 'Pós-graduando em Arquitetura de Software @ FIAP',
+    subtitle: 'Pós-graduando em Arquitetura e Desenvolvimento Java @ FIAP',
     badge: '1x AWS Certified',
     description: 'Construindo soluções escaláveis e performantes',
     cta: {
@@ -25,7 +25,7 @@ export const pt = {
   about: {
     title: 'Sobre Mim',
     paragraphs: [
-      'Desenvolvedor Backend com foco no ecossistema Java e Cloud Computing. AWS Certified Cloud Practitioner e pós-graduando em Arquitetura de Software pela FIAP, possuo experiência prática na criação de APIs RESTful, automação de processos e conteinerização (Docker/AWS).',
+      'Desenvolvedor Backend com foco no ecossistema Java e Cloud Computing. AWS Certified Cloud Practitioner e pós-graduando em Arquitetura e Desenvolvimento Java pela FIAP, possuo experiência prática na criação de APIs RESTful, automação de processos e conteinerização (Docker/AWS).',
       'Orientado a metodologias ágeis (Scrum, Kanban) e boas práticas (SOLID, Clean Code). Tenho facilidade para integrações entre back-end e front-end e atualmente aprofundo meus estudos acadêmicos em Microsserviços, Quarkus e mensageria (Kafka/RabbitMQ) para agregar valor aos projetos de inovação técnica do time.',
     ],
   },
@@ -45,6 +45,15 @@ export const pt = {
     viewCode: 'Ver Repositório',
     viewDemo: 'Ver Demo',
     technologies: 'Tecnologias',
+    categories: {
+      production: 'Produção',
+      academic: 'Acadêmico · FIAP',
+      personal: 'Projeto pessoal',
+    },
+    privateRepo: {
+      label: 'Repositório Privado',
+      note: 'Projeto em produção com código proprietário da empresa.',
+    },
   },
   experience: {
     title: 'Experiência Profissional',

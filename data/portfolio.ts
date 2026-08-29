@@ -1,4 +1,15 @@
 // Portfolio data structure
+
+/** Where a project came from. Drives the category tag rendered on its card. */
+export const projectCategories = ['production', 'academic', 'personal'] as const
+
+export type ProjectCategory = (typeof projectCategories)[number]
+
+export interface ProjectRepository {
+  label: string
+  url: string
+}
+
 export interface Project {
   id: string
   title: string
@@ -8,11 +19,14 @@ export interface Project {
   }
   technologies: string[]
   githubUrl?: string
+  /** Use when a single card covers more than one repository. */
+  repositories?: ProjectRepository[]
   demoUrl?: string
   image?: string
   featured: boolean
   highlight?: boolean
   isPrivate?: boolean
+  category?: ProjectCategory
 }
 
 export interface Experience {
@@ -45,6 +59,14 @@ export interface Certification {
   issuer: string
   date: string
   credentialUrl?: string
+  /** Site-absolute path to the official badge artwork in `public/`. */
+  badgeImage?: string
+}
+
+/** The CV offered for download in the hero. */
+export const resume = {
+  path: '/cv/CV_Lucas_Oliveira_Backend_Java.pdf',
+  fileName: 'CV_Lucas_Oliveira_Backend_Java.pdf',
 }
 
 // Portfolio Data
@@ -59,6 +81,7 @@ export const skills: Skill[] = [
   { name: 'Spring Cloud', category: 'backend', level: 3 },
   { name: 'OAuth2', category: 'backend', level: 4 },
   { name: 'Mensageria (Kafka/RabbitMQ)', category: 'backend', level: 3 },
+  { name: 'C# / .NET', category: 'backend', level: 3 },
 
   // Database
   { name: 'SQL Server', category: 'database', level: 5 },
@@ -70,7 +93,7 @@ export const skills: Skill[] = [
   { name: 'PL/SQL', category: 'database', level: 3 },
 
   // Cloud & DevOps
-  { name: 'AWS', category: 'cloud', level: 4 },
+  { name: 'AWS (EC2, ECR, RDS, S3)', category: 'cloud', level: 4 },
   { name: 'Docker', category: 'cloud', level: 4 },
   { name: 'Kubernetes', category: 'cloud', level: 3 },
   { name: 'Linux', category: 'cloud', level: 3 },
@@ -81,6 +104,8 @@ export const skills: Skill[] = [
   { name: 'JUnit/Mockito', category: 'tools', level: 4 },
   { name: 'Maven', category: 'tools', level: 4 },
   { name: 'Swagger/OpenAPI', category: 'tools', level: 4 },
+  { name: 'Resilience4j', category: 'tools', level: 3 },
+  { name: 'Azure DevOps', category: 'tools', level: 3 },
 
   // Other
   { name: 'SOLID / Clean Arch', category: 'other', level: 4 },
@@ -103,17 +128,46 @@ export const projects: Project[] = [
     featured: true,
     highlight: true,
     isPrivate: true,
+    category: 'production',
+  },
+  {
+    id: 'project-1',
+    title: 'Money Transfer API',
+    description: {
+      pt: 'API REST de transferências financeiras no modelo Pix, com as garantias que dinheiro exige: valores em BigDecimal para nunca perder precisão, débito e crédito numa única transação atômica, e regras de negócio que impedem transferências inválidas. Autenticação stateless com JWT e BCrypt, migrations versionadas em Flyway e tratamento global de exceções traduzindo erros de domínio em respostas HTTP semânticas. Testes unitários com Mockito e testes de integração contra banco em memória.',
+      en: 'A REST API for Pix-style financial transfers, built with the guarantees money demands: BigDecimal amounts so precision is never lost, debit and credit inside a single atomic transaction, and business rules that reject invalid transfers. Stateless JWT authentication with BCrypt, versioned Flyway migrations and global exception handling that turns domain errors into semantic HTTP responses. Unit tests with Mockito and integration tests against an in-memory database.',
+    },
+    technologies: ['Java 21', 'Spring Boot 3', 'PostgreSQL', 'Spring Security', 'JWT', 'JPA/Hibernate', 'Flyway', 'JUnit 5', 'Mockito'],
+    githubUrl: 'https://github.com/git-lucasoliveira/money-transfer-api',
+    featured: false,
+    category: 'personal',
   },
   {
     id: 'project-2',
-    title: 'RH System - Open Source',
+    title: 'FIAP Tech Challenge',
     description: {
-      pt: 'Projeto desenvolvido para demonstrar arquitetura Enterprise e padrões de segurança com Spring Security. Baseado em desafios comuns de sistemas de RH corporativos.',
-      en: 'This project was developed to demonstrate Enterprise architecture and security standards using Spring Security. It\'s based on common challenges faced by corporate HR systems.',
+      pt: 'O mesmo domínio de gestão de restaurantes resolvido duas vezes, para comparar arquiteturas na prática. A fase 1 entregou uma API em arquitetura de camadas convencional; a fase 2 reescreveu o sistema em Clean Architecture com quatro camadas isoladas — domínio, aplicação, infraestrutura e apresentação — reduzindo o acoplamento entre regras de negócio, framework e banco. A segunda versão trouxe também testes de integração com Testcontainers subindo PostgreSQL real, Docker Compose e documentação em Swagger/OpenAPI.',
+      en: 'The same restaurant management domain solved twice, to compare architectures in practice. Phase 1 delivered an API in a conventional layered architecture; phase 2 rewrote the system in Clean Architecture with four isolated layers — domain, application, infrastructure and presentation — cutting the coupling between business rules, framework and database. The second version also brought integration tests with Testcontainers spinning up a real PostgreSQL, Docker Compose and Swagger/OpenAPI documentation.',
     },
-    technologies: ['Java', 'Spring Security', 'JWT', 'JPA', 'Bean Validation', 'jsPDF'],
+    technologies: ['Java 21', 'Spring Boot', 'Clean Architecture', 'PostgreSQL', 'Testcontainers', 'Docker Compose', 'Swagger/OpenAPI', 'Maven'],
+    repositories: [
+      { label: 'Fase 2 — Clean Architecture', url: 'https://github.com/git-lucasoliveira/fiap-tech-challenge-fase2' },
+      { label: 'Fase 1 — Camadas', url: 'https://github.com/git-lucasoliveira/fiap-tech-challenge-fase1' },
+    ],
+    featured: false,
+    category: 'academic',
+  },
+  {
+    id: 'project-3',
+    title: 'Onboarding Manager',
+    description: {
+      pt: 'Sistema de RH que automatiza a geração de termos de responsabilidade em PDF e o controle de ativos de hardware e contas em sistemas externos. Backend em Java com Spring Boot e Spring Security, com controle de acesso por perfil (Admin, RH e TI), DTOs isolando as respostas da API, tratamento global de exceções e validação de entrada. É o repositório aberto que demonstra os padrões que aplico em sistemas corporativos.',
+      en: 'An HR system that automates responsibility-term PDF generation and tracks hardware assets and external system accounts. Java backend with Spring Boot and Spring Security, role-based access control (Admin, HR and IT), DTOs isolating API responses, global exception handling and input validation. This is the open repository that demonstrates the patterns I apply in corporate systems.',
+    },
+    technologies: ['Java 17', 'Spring Boot 3', 'Spring Security 6', 'JWT', 'SQL Server', 'JPA', 'Bean Validation', 'jsPDF'],
     githubUrl: 'https://github.com/git-lucasoliveira/onboarding-manager',
-    featured: true,
+    featured: false,
+    category: 'personal',
   },
 ]
 
@@ -136,6 +190,7 @@ export const experiences: Experience[] = [
         'Engine financeira própria para o Demonstrativo de Evolução da Dívida, em BigDecimal com Newton-Raphson e versionada para reprodutibilidade: o ciclo de saldo devedor, geração e anexação caiu de ~20 minutos manuais para segundos, e o reprocessamento agendado re-executa 3.000+ demonstrativos em 3 horas.',
         'Substituição do cálculo de margem em planilha manual (~10 minutos por cliente e sujeito a erro) por cálculo automatizado em menos de 1 minuto, com extrato auditável das regras aplicadas por convênio.',
         'Clean Architecture por módulo, PostgreSQL com migrations versionadas em Flyway, controle de acesso por perfil (RBAC), trilha de auditoria e integrações resilientes (circuit breaker, bulkhead, outbox com reconciliação).',
+        'Atuação também em uma segunda plataforma corporativa de crédito, separada do StarSuite, com backend em C# / .NET e versionamento e pipelines no Azure DevOps.',
       ],
       en: [
         'Created StarSuite, a multi-tenant internal platform for payroll-deducted credit operations, today with 11 modules — I remain its main developer as the project grew to involve other engineers.',
@@ -143,6 +198,7 @@ export const experiences: Experience[] = [
         'Built an in-house financial engine for debt-evolution statements on BigDecimal with a Newton-Raphson solver, versioned for reproducibility: the balance to generation to attachment cycle went from ~20 manual minutes to seconds, and scheduled reprocessing re-runs 3,000+ statements in 3 hours.',
         'Replaced manual spreadsheet-based margin calculation (~10 minutes per client and error-prone) with an automated calculation under 1 minute, including an auditable breakdown of the rules applied per agreement.',
         'Clean Architecture per module, PostgreSQL with versioned Flyway migrations, role-based access control (RBAC), audit trail and resilient integrations (circuit breaker, bulkhead, outbox with reconciliation).',
+        'I also work on a second corporate credit platform, separate from StarSuite, with a C# / .NET backend and version control and pipelines on Azure DevOps.',
       ],
     },
     type: 'work',
@@ -202,8 +258,8 @@ export const experiences: Experience[] = [
   {
     id: 'edu-1',
     title: {
-      pt: 'Pós-graduação Lato Sensu em Arquitetura de Software',
-      en: 'Lato Sensu Postgraduate in Software Architecture',
+      pt: 'Pós-graduação Lato Sensu em Arquitetura e Desenvolvimento Java',
+      en: 'Lato Sensu Postgraduate in Java Architecture and Development',
     },
     company: 'FIAP',
     period: {
@@ -283,6 +339,7 @@ export const certifications: Certification[] = [
     issuer: 'Amazon Web Services',
     date: '2026',
     credentialUrl: 'https://www.credly.com/badges/16ad678b-05b7-46e8-8fc8-a5fbca319edf',
+    badgeImage: '/awscloudpractioner.png',
   },
 ]
 

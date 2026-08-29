@@ -15,7 +15,7 @@ export const en: Translations = {
     greeting: 'Hi, I\'m',
     name: 'Lucas de Oliveira Amorim',
     role: 'Backend Developer | Java & Spring',
-    subtitle: 'Postgraduate student in Software Architecture @ FIAP',
+    subtitle: 'Postgraduate student in Java Architecture and Development @ FIAP',
     badge: '1x AWS Certified',
     description: 'Building scalable and performant solutions',
     cta: {
@@ -27,7 +27,7 @@ export const en: Translations = {
   about: {
     title: 'About Me',
     paragraphs: [
-      'Backend Developer focused on the Java ecosystem and Cloud Computing. AWS Certified Cloud Practitioner and postgraduate student in Software Architecture at FIAP, with practical experience in creating RESTful APIs, process automation, and containerization (Docker/AWS).',
+      'Backend Developer focused on the Java ecosystem and Cloud Computing. AWS Certified Cloud Practitioner and postgraduate student in Java Architecture and Development at FIAP, with practical experience in creating RESTful APIs, process automation, and containerization (Docker/AWS).',
       'Driven by agile methodologies (Scrum, Kanban) and best practices (SOLID, Clean Code). I have a strong aptitude for backend to frontend integrations and am currently deepening my academic studies in Microservices, Quarkus and messaging (Kafka/RabbitMQ) to add value to the team\'s technical innovation projects.',
     ],
   },
@@ -47,6 +47,15 @@ export const en: Translations = {
     viewCode: 'View Repository',
     viewDemo: 'View Demo',
     technologies: 'Technologies',
+    categories: {
+      production: 'Production',
+      academic: 'Academic · FIAP',
+      personal: 'Personal project',
+    },
+    privateRepo: {
+      label: 'Private Repository',
+      note: 'A production system containing proprietary company code.',
+    },
   },
   experience: {
     title: 'Professional Experience',

@@ -185,38 +185,81 @@ section {
   content-visibility: auto;
 }
 
-/* Tech badges - optimized */
+/* Tech badges - optimized.
+   Colour is per-theme: slate-400 fails contrast on the light background (2.56:1). */
 .tech-badge {
   display: inline-block;
   padding: 0.375rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 500;
-  color: rgba(148, 163, 184, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.1);
+  color: #475569;
+  border: 1px solid rgba(71, 85, 105, 0.2);
   border-radius: 0.375rem;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 23, 42, 0.02);
   contain: layout style;
 }
 
-/* Project links - optimized */
+.dark .tech-badge {
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* Category tag - metadata, deliberately not an award badge.
+   Distinguished from the highlight/featured pills by shape, voice and colour:
+   rectangular, monospaced, uppercase, neutral. */
+.category-tag {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  font-family: var(--font-jetbrains), monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+  border: 1px solid rgba(71, 85, 105, 0.25);
+  border-radius: 0.25rem;
+  contain: layout style;
+}
+
+.dark .category-tag {
+  color: #94a3b8;
+  border-color: rgba(148, 163, 184, 0.2);
+}
+
+/* Project links - optimized.
+   blue-500 fails contrast on the light background (3.68:1), so light mode uses blue-600.
+   min-height keeps the tap target at the 44px minimum. */
 .project-link {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  min-height: 44px;
+  padding: 0.625rem 1rem;
   font-size: 0.875rem;
   font-weight: 500;
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  color: rgb(59, 130, 246);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: #2563eb;
   border-radius: 0.5rem;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   contain: layout style;
 }
 
+.dark .project-link {
+  border-color: rgba(59, 130, 246, 0.3);
+  color: #3b82f6;
+}
+
 .project-link:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+.dark .project-link:hover {
   background: rgba(59, 130, 246, 0.1);
   border-color: rgba(59, 130, 246, 0.5);
 }
+
 
 /* Logo pulse animation */
 @keyframes logo-pulse {
@@ -298,4 +341,17 @@ h1, h2, h3, h4, h5, h6 {
 /* Focus styles */
 *:focus-visible {
   @apply outline-none ring-2 ring-primary-light dark:ring-primary-dark ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark;
+}
+
+/* Respect the OS "reduce motion" setting for CSS-driven animation.
+   framer-motion is handled separately by MotionConfig in MotionProvider. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

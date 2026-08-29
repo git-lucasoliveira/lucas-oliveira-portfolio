@@ -1,6 +1,7 @@
 'use client'
 
 import React, { memo } from 'react'
+import Image from 'next/image'
 import { Award, ExternalLink } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
@@ -61,8 +62,20 @@ function EducationSection() {
             {certifications.map((cert) => (
               <Card key={cert.id}>
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-accent" />
+                  <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center">
+                    {cert.badgeImage ? (
+                      <Image
+                        src={cert.badgeImage}
+                        alt={`${cert.name} badge`}
+                        width={510}
+                        height={588}
+                        className="h-16 w-auto"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center">
+                        <Award className="w-6 h-6 text-accent" />
+                      </div>
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h4 className="text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">

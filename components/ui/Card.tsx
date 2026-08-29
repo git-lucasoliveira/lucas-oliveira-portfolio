@@ -7,15 +7,17 @@ interface CardProps {
   children: React.ReactNode
   className?: string
   hover?: boolean
+  /** Seconds to stagger this card's entrance behind its siblings. */
+  delay?: number
 }
 
-function Card({ children, className = '', hover = true }: CardProps) {
+function Card({ children, className = '', hover = true, delay = 0 }: CardProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.5, delay, ease: [0.25, 0.1, 0.25, 1] }}
       style={{ 
         transform: 'translate3d(0, 0, 0)',
         backfaceVisibility: 'hidden',
@@ -33,6 +35,7 @@ export default memo(Card, (prevProps, nextProps) => {
   return (
     prevProps.className === nextProps.className &&
     prevProps.hover === nextProps.hover &&
+    prevProps.delay === nextProps.delay &&
     prevProps.children === nextProps.children
   )
 })
