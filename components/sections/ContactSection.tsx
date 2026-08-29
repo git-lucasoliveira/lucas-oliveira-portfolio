@@ -8,13 +8,9 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
 import { socialLinks } from '@/data/portfolio'
-import emailjs from 'emailjs-com'
+import { sendContactMessage, type ContactMessage } from '@/lib/contact'
 
-interface FormData {
-  name: string
-  email: string
-  message: string
-}
+type FormData = ContactMessage
 
 function ContactSection() {
   const { t, language } = useLanguage()
@@ -36,36 +32,16 @@ function ContactSection() {
     setIsSubmitting(true)
     setSubmitStatus(null)
 
-    try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    const result = await sendContactMessage(data)
 
-      if (!serviceId || !templateId || !publicKey) {
-        console.warn('EmailJS credentials missing. Check your .env file.')
-        throw new Error('Email service not configured')
-      }
-
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          name: data.name,
-          email: data.email,
-          message: data.message,
-          title: 'Contato via Portfólio',
-        },
-        publicKey
-      )
-
+    if (result.ok) {
       setSubmitStatus('success')
       reset()
-    } catch (error) {
-      console.error('Form submission error:', error)
+    } else {
       setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
     }
+
+    setIsSubmitting(false)
   }
 
   const copyEmail = async () => {

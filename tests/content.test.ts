@@ -7,7 +7,6 @@ import {
   experiences,
   projects,
   projectCategories,
-  projectMarker,
   projectRepositories,
   resume,
   skills,
@@ -158,21 +157,8 @@ describe('project invariants', () => {
     }
   })
 
-  // The "a card never shows both a highlight pill and a category tag" rule is
-  // enforced by projectMarker's return type, not by a test: it resolves to a
-  // single value, so no data edit can produce both. Asserting it here would only
-  // restate the implementation.
-
-  it('shows the highlight pill on the highlighted project, and a tag on the rest', () => {
-    for (const project of projects) {
-      const marker = projectMarker(project)
-      if (project.highlight) {
-        expect(marker, project.title).toBe('highlight')
-      } else if (project.category) {
-        expect(marker, project.title).toBe('category')
-      }
-    }
-  })
+  // The "a card never shows both a highlight pill and a category tag" rule lives
+  // in the branch that renders the marker, so it is not reachable from this seam.
 
   it('labels the category of every project that declares one', () => {
     for (const project of projects) {

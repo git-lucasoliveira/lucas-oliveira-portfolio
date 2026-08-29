@@ -5,17 +5,13 @@ import { Github, ExternalLink, Lock, Star } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
-import {
-  projects,
-  projectMarker,
-  projectRepositories,
-  type Project,
-} from '@/data/portfolio'
+import { projects, projectRepositories, type Project } from '@/data/portfolio'
 
 function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   const { t, language } = useLanguage()
 
-  const marker = projectMarker(project)
+  // A card shows either the highlight pill or the category tag, never both:
+  // two badges in one corner read as noise.
   const categoryLabel = project.category
     ? t.projects.categories[project.category]
     : undefined
@@ -24,14 +20,14 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   return (
     <Card
       className={`h-full flex flex-col ${
-        marker === 'highlight'
+        project.highlight
           ? '!border-accent/40 shadow-[0_0_24px_rgba(16,185,129,0.08)]'
           : ''
       }`}
       hover={false}
       delay={delay}
     >
-      {marker === 'highlight' ? (
+      {project.highlight ? (
         <span className="highlight-pill px-3 py-1 mb-4 w-fit">
           <Star className="w-3.5 h-3.5" aria-hidden="true" />
           {t.projects.highlight}

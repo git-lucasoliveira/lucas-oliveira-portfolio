@@ -39,14 +39,6 @@ export function projectRepositories(project: Project): ProjectRepository[] {
   return []
 }
 
-/**
- * The single marker a card renders. A card shows either the highlight pill or
- * the category tag, never both: two badges in one corner read as noise.
- */
-export function projectMarker(project: Project): 'highlight' | 'category' {
-  return project.highlight ? 'highlight' : 'category'
-}
-
 export interface Experience {
   id: string
   title: {
