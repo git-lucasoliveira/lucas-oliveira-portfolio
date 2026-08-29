@@ -6,7 +6,8 @@ export const projectCategories = ['production', 'academic', 'personal'] as const
 export type ProjectCategory = (typeof projectCategories)[number]
 
 export interface ProjectRepository {
-  label: string
+  /** Omit when a card has a single repository and the generic label will do. */
+  label?: string
   url: string
 }
 
@@ -23,10 +24,27 @@ export interface Project {
   repositories?: ProjectRepository[]
   demoUrl?: string
   image?: string
-  featured: boolean
   highlight?: boolean
   isPrivate?: boolean
   category?: ProjectCategory
+}
+
+/**
+ * Every repository link a card should offer, from either shape.
+ * Single source of truth so the UI and its tests cannot drift apart.
+ */
+export function projectRepositories(project: Project): ProjectRepository[] {
+  if (project.repositories?.length) return project.repositories
+  if (project.githubUrl) return [{ url: project.githubUrl }]
+  return []
+}
+
+/**
+ * The single marker a card renders. A card shows either the highlight pill or
+ * the category tag, never both: two badges in one corner read as noise.
+ */
+export function projectMarker(project: Project): 'highlight' | 'category' {
+  return project.highlight ? 'highlight' : 'category'
 }
 
 export interface Experience {
@@ -64,10 +82,16 @@ export interface Certification {
 }
 
 /** The CV offered for download in the hero. */
+const resumePath = '/cv/CV_Lucas_Oliveira_Backend_Java.pdf'
+
 export const resume = {
-  path: '/cv/CV_Lucas_Oliveira_Backend_Java.pdf',
-  fileName: 'CV_Lucas_Oliveira_Backend_Java.pdf',
+  path: resumePath,
+  /** What the file is called once it lands in the visitor's downloads folder. */
+  fileName: resumePath.split('/').pop() as string,
 }
+
+/** Intrinsic pixel size of the certification badge artwork in `public/`. */
+export const certificationBadgeSize = { width: 510, height: 588 }
 
 // Portfolio Data
 export const skills: Skill[] = [
@@ -125,7 +149,6 @@ export const projects: Project[] = [
       en: 'Multi-tenant internal platform for payroll-deducted credit operations, with 11 modules that replaced manual processes with software. Includes AI-assisted document validation (Google Gemini), an in-house financial engine built on BigDecimal with a Newton-Raphson solver and versioned for reproducibility, margin calculation with an auditable breakdown, Clean Architecture per module, PostgreSQL with versioned Flyway migrations, RBAC, a full audit trail and resilient integrations. Containerized deployment on AWS (EC2/ECR) via CI/CD with GitHub Actions.',
     },
     technologies: ['Java 21', 'Spring Boot 3.5', 'PostgreSQL', 'Flyway', 'Google Gemini', 'Resilience4j', 'Apache POI', 'PDFBox', 'Docker', 'AWS', 'GitHub Actions'],
-    featured: true,
     highlight: true,
     isPrivate: true,
     category: 'production',
@@ -139,7 +162,6 @@ export const projects: Project[] = [
     },
     technologies: ['Java 21', 'Spring Boot 3', 'PostgreSQL', 'Spring Security', 'JWT', 'JPA/Hibernate', 'Flyway', 'JUnit 5', 'Mockito'],
     githubUrl: 'https://github.com/git-lucasoliveira/money-transfer-api',
-    featured: false,
     category: 'personal',
   },
   {
@@ -154,7 +176,6 @@ export const projects: Project[] = [
       { label: 'Fase 2 — Clean Architecture', url: 'https://github.com/git-lucasoliveira/fiap-tech-challenge-fase2' },
       { label: 'Fase 1 — Camadas', url: 'https://github.com/git-lucasoliveira/fiap-tech-challenge-fase1' },
     ],
-    featured: false,
     category: 'academic',
   },
   {
@@ -166,7 +187,6 @@ export const projects: Project[] = [
     },
     technologies: ['Java 17', 'Spring Boot 3', 'Spring Security 6', 'JWT', 'SQL Server', 'JPA', 'Bean Validation', 'jsPDF'],
     githubUrl: 'https://github.com/git-lucasoliveira/onboarding-manager',
-    featured: false,
     category: 'personal',
   },
 ]
@@ -342,6 +362,11 @@ export const certifications: Certification[] = [
     badgeImage: '/awscloudpractioner.png',
   },
 ]
+
+/** The certification the hero puts its badge on. */
+export const awsCertification = certifications.find(
+  (cert) => cert.id === 'cert-aws-ccp'
+)
 
 export const socialLinks = {
   github: 'https://github.com/git-lucasoliveira',

@@ -15,6 +15,9 @@ const config: Config = {
           dark: '#3b82f6',
         },
         accent: '#10b981',
+        // accent fails contrast on the light background (2.54:1); this is its
+        // light-mode counterpart at 5.48:1.
+        'accent-strong': '#047857',
         background: {
           light: '#ffffff',
           dark: '#0f172a',

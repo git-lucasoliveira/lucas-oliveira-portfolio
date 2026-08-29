@@ -1,4 +1,6 @@
 // Translations for Portuguese (PT-BR)
+import type { ProjectCategory } from '@/data/portfolio'
+
 export const pt = {
   nav: {
     about: 'Sobre',
@@ -49,7 +51,7 @@ export const pt = {
       production: 'Produção',
       academic: 'Acadêmico · FIAP',
       personal: 'Projeto pessoal',
-    },
+    } satisfies Record<ProjectCategory, string>,
     privateRepo: {
       label: 'Repositório Privado',
       note: 'Projeto em produção com código proprietário da empresa.',

@@ -7,12 +7,14 @@ import {
   experiences,
   projects,
   projectCategories,
+  projectMarker,
+  projectRepositories,
   resume,
   skills,
   socialLinks,
-} from '../data/portfolio'
-import { pt } from '../locales/pt'
-import { en } from '../locales/en'
+} from '@/data/portfolio'
+import { pt } from '@/locales/pt'
+import { en } from '@/locales/en'
 
 const PUBLIC_DIR = join(__dirname, '..', 'public')
 
@@ -42,12 +44,9 @@ function isAbsoluteHttpsUrl(value: string): boolean {
   }
 }
 
-/** Every repository link a card can render, from either shape. */
+/** Every repository link a card renders. Same normaliser the UI uses. */
 function repoLinks(project: (typeof projects)[number]): string[] {
-  return [
-    ...(project.githubUrl ? [project.githubUrl] : []),
-    ...(project.repositories ?? []).map((repo) => repo.url),
-  ]
+  return projectRepositories(project).map((repo) => repo.url)
 }
 
 describe('language parity', () => {
@@ -166,6 +165,18 @@ describe('project invariants', () => {
     }
   })
 
+  it('gives every card exactly one marker, never a highlight pill and a tag at once', () => {
+    for (const project of projects) {
+      const marker = projectMarker(project)
+      expect(marker, project.title).toBe(project.highlight ? 'highlight' : 'category')
+      // The marker a card renders resolves to one value, so the two can never
+      // appear together however the data is edited.
+      if (marker === 'category') {
+        expect(project.category, project.title).toBeTruthy()
+      }
+    }
+  })
+
   it('labels every category used, in both languages', () => {
     const used = new Set(
       projects.map((project) => project.category).filter(Boolean) as string[]
@@ -211,8 +222,6 @@ describe('CV and site agree', () => {
   })
 
   it('does not describe the FIAP course as Software Architecture anywhere', () => {
-    const stale = [...keyPaths(pt), ...keyPaths(en)].filter(() => false)
-    expect(stale).toEqual([])
     expect(pt.hero.subtitle).not.toContain('Arquitetura de Software')
     expect(en.hero.subtitle).not.toContain('Software Architecture')
     expect(pt.about.paragraphs.join(' ')).not.toContain('Arquitetura de Software')

@@ -5,38 +5,35 @@ import { Github, ExternalLink, Lock, Star } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
-import { projects, type Project } from '@/data/portfolio'
+import {
+  projects,
+  projectMarker,
+  projectRepositories,
+  type Project,
+} from '@/data/portfolio'
 
 function ProjectCard({ project, delay }: { project: Project; delay: number }) {
   const { t, language } = useLanguage()
 
-  // A card carries either the highlight pill or the category tag, never both:
-  // two badges competing in the same corner is what makes the section read as noise.
-  const isHighlight = Boolean(project.highlight)
+  const marker = projectMarker(project)
   const categoryLabel = project.category
     ? t.projects.categories[project.category]
     : undefined
-
-  const repositories = [
-    ...(project.repositories ?? []),
-    ...(project.githubUrl && !project.repositories
-      ? [{ label: t.projects.viewCode, url: project.githubUrl }]
-      : []),
-  ]
+  const repositories = projectRepositories(project)
 
   return (
     <Card
       className={`h-full flex flex-col ${
-        isHighlight
+        marker === 'highlight'
           ? '!border-accent/40 shadow-[0_0_24px_rgba(16,185,129,0.08)]'
           : ''
       }`}
       hover={false}
       delay={delay}
     >
-      {isHighlight ? (
-        <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-accent border border-emerald-700/30 dark:border-accent/30 bg-accent/10 rounded-full mb-4 w-fit">
-          <Star className="w-3.5 h-3.5" />
+      {marker === 'highlight' ? (
+        <span className="credential-pill px-3 py-1 mb-4 w-fit">
+          <Star className="w-3.5 h-3.5" aria-hidden="true" />
           {t.projects.highlight}
         </span>
       ) : categoryLabel ? (
@@ -82,7 +79,7 @@ function ProjectCard({ project, delay }: { project: Project; delay: number }) {
               className="project-link"
             >
               <Github className="w-4 h-4" aria-hidden="true" />
-              {repo.label}
+              {repo.label ?? t.projects.viewCode}
             </a>
           ))
         )}

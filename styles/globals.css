@@ -205,6 +205,25 @@ section {
   background: rgba(255, 255, 255, 0.02);
 }
 
+/* Credential pill - the shared treatment for the AWS badge in the hero and the
+   highlighted-project pill. accent alone fails contrast on the light background. */
+.credential-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #047857;
+  border: 1px solid rgba(4, 120, 87, 0.3);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.dark .credential-pill {
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
 /* Category tag - metadata, deliberately not an award badge.
    Distinguished from the highlight/featured pills by shape, voice and colour:
    rectangular, monospaced, uppercase, neutral. */

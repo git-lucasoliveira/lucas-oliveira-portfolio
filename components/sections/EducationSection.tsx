@@ -6,7 +6,7 @@ import { Award, ExternalLink } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Section from '@/components/ui/Section'
 import Card from '@/components/ui/Card'
-import { experiences, certifications } from '@/data/portfolio'
+import { experiences, certifications, certificationBadgeSize } from '@/data/portfolio'
 
 function EducationSection() {
   const { t, language } = useLanguage()
@@ -64,13 +64,20 @@ function EducationSection() {
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center">
                     {cert.badgeImage ? (
-                      <Image
-                        src={cert.badgeImage}
-                        alt={`${cert.name} badge`}
-                        width={510}
-                        height={588}
-                        className="h-16 w-auto"
-                      />
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Verify credential: ${cert.name}`}
+                      >
+                        <Image
+                          src={cert.badgeImage}
+                          alt={`${cert.name} badge`}
+                          width={certificationBadgeSize.width}
+                          height={certificationBadgeSize.height}
+                          className="h-16 w-auto"
+                        />
+                      </a>
                     ) : (
                       <div className="w-12 h-12 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center">
                         <Award className="w-6 h-6 text-accent" />
@@ -81,7 +88,7 @@ function EducationSection() {
                     <h4 className="text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
                       {cert.name}
                     </h4>
-                    <p className="text-sm text-slate-400 dark:text-slate-400">
+                    <p className="text-sm text-text-secondary-light dark:text-text-secondary-dark">
                       {cert.issuer} · {cert.date}
                     </p>
                   </div>
